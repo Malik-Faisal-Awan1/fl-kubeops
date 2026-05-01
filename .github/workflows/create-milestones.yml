@@ -3,7 +3,8 @@ name: Create Milestones
 on:
   push:
     branches:
-      - copilot/create-milestones
+      - main
+  workflow_dispatch:
 
 jobs:
   create-milestones:
