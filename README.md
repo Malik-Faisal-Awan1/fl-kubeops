@@ -104,7 +104,7 @@ flowchart TB
 | M. Hammad | Testing and simulation |
 
 **Institution:** University of Central Punjab · BSCS Final Year Project · Spring 2026  
-**Advisor:** Mr. Zulkifl Hasan
+**Advisor:** \prof. Dr. Saira Andleeb Gilani
 
 ## Learn more
 
