@@ -12,7 +12,7 @@ University of Central Punjab — BSCS Final Year Project — Spring 2026
 - Wajeeh ur Rehman (L1F23BSCS0669) — Pipeline, Infrastructure
 - M. Hammad (L1F23BSCS0204) — Testing, Simulation
 
-**Advisor:** Mr. Zulkifl Hasan
+**Advisor:** Prof. Dr. Saira Andleeb Gilani
 
 ## Research Archive
 Internal research papers and notes are maintained in the team's shared
