@@ -1,0 +1,34 @@
+name: Create Project Milestones
+
+on:
+  push:
+    branches:
+      - 'copilot/create-milestones-phases'
+
+jobs:
+  create-milestones:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Create milestones
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          REPO="${{ github.repository }}"
+
+          create_milestone_if_not_exists() {
+            local title="$1"
+            existing=$(gh api /repos/$REPO/milestones --jq ".[] | select(.title == \"$title\") | .number" 2>/dev/null)
+            if [ -z "$existing" ]; then
+              gh api --method POST /repos/$REPO/milestones -f title="$title"
+              echo "Created milestone: $title"
+            else
+              echo "Milestone already exists: $title (number: $existing)"
+            fi
+          }
+
+          create_milestone_if_not_exists "Phase 1: Requirements Specification"
+          create_milestone_if_not_exists "Phase 2: Software Design Spec"
+          create_milestone_if_not_exists "Phase 3: Design & Test Spec"
+          create_milestone_if_not_exists "Phase 4: Final System"
