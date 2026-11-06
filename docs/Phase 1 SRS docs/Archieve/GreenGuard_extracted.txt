@@ -1,0 +1,2560 @@
+Total pages: 56
+
+
+=== PAGE 1 ===
+ University of Central Pun jab 
+BSCS FINAL PROJECT  
+Software Requirements Specification  
+ 
+Green  Guard  
+ 
+ 
+ 
+ 
+ 
+ 
+        Product Owner  
+ 
+          Muhammad Zulkifl Hasan  
+ 
+ 
+ 
+       Presented by:  
+     Group ID: S26CS060  
+ 
+                          Student Reg#                                    Student Name  
+     L1S23BSCS0056                            Minahil Kamran  
+                          L1S23BSCS0070                            Hamia Khalil  
+                          L1S23BSCS0090                            Laiba Farooq  
+ 
+ 
+ 
+Faculty of Information Technology  & Computer Science  
+ 
+University of Central Punjab  
+
+=== PAGE 2 ===
+ University of Central Pun jab 
+Software Requirements Specification  
+Version : 1 
+Product Owner :  
+Muhammad Zulkifl Hasan   
+ 
+Scrum Master  
+Minahil Kamran   
+Group  S26CS060  
+ 
+Team  
+Member Name  Roles  
+Minahil Kamran  Scrum Master, AI Developer, Frontend 
+Developer  
+Hamia Khalil  Full Stack  and AI Developer  
+Laiba Farooq  Documentation and Cloud Deployment Lead  
+=== PAGE 3 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page i Table of Contents  
+Table of Contents  ................................ ................................ ................................ ......................  i 
+List of Figures  ................................ ................................ ................................ ...........................  ii 
+Revision History & Sprint Log  ................................ ................................ ..............................  iii 
+Previous Phases Feedback  ................................ ................................ ................................ ...... iv 
+Abstract  ................................ ................................ ................................ ................................ ..... v 
+1. Introduction and Background  ................................ ................................ ..........................  1 
+1.1 Product Vision & Problem Context  ................................ ................................ .......................  1 
+1.2 Stakeholders Identification  ................................ ................................ ................................ .... 9 
+2. Agile Framework Setup  ................................ ................................ ................................ ... 11 
+2.1 Epics For the Project ................................ ................................ ................................ ............  14 
+2.2 Product Backlog  ................................ ................................ ................................ ..................  16 
+2.3 User Stories  ................................ ................................ ................................ .........................  18 
+2.4 Story Points & Estimation  ................................ ................................ ................................ ... 20 
+2.5 Sprint Planning & Sprint Backlog  ................................ ................................ .......................  22 
+3. Functional Requirements  ................................ ................................ ................................  24 
+3.1 Use Case Diagram  ................................ ................................ ................................ ...............  24 
+4. Non-functional Requirements  ................................ ................................ .........................  29 
+4.1 Reliability  ................................ ................................ ................................ ............................  29 
+4.2 Performance  ................................ ................................ ................................ .........................  29 
+4.3 Use-ability  ................................ ................................ ................................ ...........................  30 
+4.4 Other Non-functional Requirements  ................................ ................................ ...................  31 
+4.4.1  Security Requirements  ................................ ................................ ................................ .... 31 
+4.4.2  Scalability Requirements ................................ ................................ ................................ . 31 
+4.4.3  Explainability & Validation Requirements  ................................ ................................ ..... 32 
+5. Scrum Activities Plan  ................................ ................................ ................................ ...... 33 
+5.1 Kanban Board / Task Tracking  ................................ ................................ ............................  35 
+5.2 Acceptance Criteria  ................................ ................................ ................................ .............  38 
+5.3 Release Criteria  ................................ ................................ ................................ ...................  39 
+5.4 Burndown Chart & Progress Tracking  ................................ ................................ ................  40 
+5.5 Backlog Refinement Plan  ................................ ................................ ................................ .... 42 
+6. Risk Analysis  ................................ ................................ ................................ ....................  43 
+7. References  ................................ ................................ ................................ .........................  45 
+Appendix A: Glossary ................................ ................................ ................................ ............  47 
+Appendix B: IV & V Report  ................................ ................................ ................................ . 49 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+=== PAGE 4 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page ii List of Figures  
+Figure 1: Idea Defense Feedback  ................................ ................................ ................................ ...................  iv 
+Figure 2: Proposed System Workflow  ................................ ................................ ................................ ..............  3 
+Figure 3:  Similar looking diseases  ................................ ................................ ................................ ..................  4 
+Figure 4: Manual Soil Check  ................................ ................................ ................................ ..........................  5 
+Figure 5: Healthy Vs Diseased Potatoes  ................................ ................................ ................................ ..........  5 
+Figure 6: Healthy Crops Corn Plant (left) Tomato (right)  ................................ ................................ ...............  6 
+Figure 7: Identified Field Weaknesses  ................................ ................................ ................................ ............  6 
+Figure 8: Distribution of Observed Agricultural Challenges  ................................ ................................ ...........  7 
+Figure 9: Observation Appreciation and Award Letter  ................................ ................................ ....................  8 
+Figure 10: Agile Workflow Green Guard  ................................ ................................ ................................ ...... 14 
+Figure 11: Diagram showing breakdown of Green Guard into major use cases  ................................ ............  24 
+Figure 12: Sprint Wise Notion Kanban Board  ................................ ................................ ...............................  36 
+Figure 13: Notion Burndown Chart of Green Guard  ................................ ................................ ....................  41 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+=== PAGE 5 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page iii  
+Revision History & Sprint Log  
+Version  Sprint  Date  Changes  Owner  
+1.0 Sprint 1  March 2026  • Requirement gathering  
+• Literature review  
+• Problem analysis  
+• Project objectives defined  Entire Team  
+1.1 Sprint 2  March 2026  • Research on multimodal deep 
+learning  
+• Research on  architectures and 
+agricultural AI systems  Entire Team  
+1.2 Sprint 3  April 2026  • System architecture finalized   
+• Workflow design  completed   
+• Tech stack selected  Minahil Kamran , 
+Hamia Khalil  
+1.3 Sprint 4  April 2026  • Initial prototyping  
+• SRS documentation  Minahil Kamran,  
+Laiba Farooq  
+1.4 Sprint 5  May 2026  • Dataset sources identified  
+• Dataset collection initiated (plant 
+disease images, environmental 
+sensor data, temporal data)  Hamia Khalil , 
+Laiba Farooq  
+=== PAGE 6 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page iv  
+Previous Phases Feedback  
+ 
+Idea Defense Feedback (Screenshot)  
+Figure 1: Idea Defen se Feedback  
+=== PAGE 7 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page v Abstract  
+ 
+Green  Guard is an intelligent plant health monitoring system to help farmers identify plant problems 
+more accurately using deep learning and feature level fusion techniques. Traditional plant disease 
+detection systems mainly rely on leaf images only and often ig nore important factors like 
+environmental conditions and historical plant data. Because of this, they may not provide complete 
+or accurate results. The proposed system solves this issue by combining three different types of data 
+like plant leaf images, env ironmental data and temporal plant data.  
+ 
+The system uses deep learning models to analyze each type of data separately. A Convolutional 
+Neural Network (CNN) model extracts visual features from leaf images, an Artificial Neural Network 
+(ANN) model processes environmental information such as tempera ture, humidity, soil moisture etc  
+while a Recurrent Neural Network (RNN) model studies historical trends and changes over time. 
+These extracted features are then combined using a feature fusion layer to create a complete 
+understanding of plant health. The fused features are then processed  using an ensemble of Multi 
+Layer Perceptron (MLP) models to simultaneously detect plant diseases, nutrient deficiencies and 
+environmental stress conditions.  
+ 
+The project operates in the agricultural domain where biological and environmental factors define 
+the problem context, while all data processing, modeling and prediction are performed using 
+computer science and AI based methodologies.  
+ 
+The main goal of Green  Guard is to provide a smart, accurate, and reliable plant monitoring system 
+for modern farming. The system will also generate useful recommendations for farmers like 
+improving irrigation, applying fertilizers or controlling diseases. This project contribut es to the fields 
+of artificial intelligence, smart agriculture, and precision farmin g by introducing a multimodal and 
+multi task learning framework for better plant health diagnosis.  
+=== PAGE 8 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 1  
+1. Introduction and Background  
+1.1 Product Vision & Problem Context  
+Problem Description:  
+Agriculture plays a major role in food production and the economy, but farmers often face serious 
+challenges in identifying plant diseases, nutrient deficiencies, and environmental stress conditions at 
+an early stage. [2] Traditional methods of crop monitoring mostly depend on manual inspection by 
+farmers or agricultural experts, which can be time consuming, expensive, and inaccurate. [12] 
+Traditional observation and experience are widely used in agricultural practices, leading to incorrect 
+decisions in many cases, without the presence of smart systems. For instance, plant diseases are 
+typically only detected once they become noticeable on l eaves rather than through an automated 
+system. Fertilizer application is frequently based on guesswork and not good soil nutrient analysis, 
+which results in over or under usage. Likewise, irrigation is applied on a fixed schedule or based on 
+intuition rath er than actual soil moistures data, that can result in water waste or crop stress. Farmers 
+are also unable to distinguish similar plant diseases without expert assistance during their work. 
+These constraints emphasize the need for intelligent solution, suc h as Green Guard.  
+ 
+Literature Survey:  
+ 
+Deep learning (DL) has emerged as a powerful approach in modern agriculture by enabling accurate 
+analysis of complex image and environmental data, supporting applications such as crop yield 
+prediction, weed detection, and plant disease identification [6].  
+ 
+Convolutional Neural Networks (CNNs) are widely used for analyzing leaf and crop images to detect 
+diseases, pests, and nutrient deficiencies by extracting spatial features efficiently [9], while Recurrent 
+Neural Networks (RNNs) model time series agricultur al data including environmental changes and 
+sensor readings to predict stress conditions over time [7]. Artificial Neural Networks (ANNs) process 
+structured data such as soil nutrients and weather parameters to identify hidden patterns affecting 
+plant heal th [8]. Ensemble learning integrates CNNs, RNNs, and ANNs to enhance prediction 
+accuracy, robustness, and generalization by combining visual and non -visual data for more reliable 
+and actionable crop monitoring systems [10].  
+ 
+Previous research applied deep learning for early leaf spot disease detection using CNN for feature 
+extraction and RNN based for classification on the PlantVillage  dataset (nearly 20,000 images). 
+Results showed based models achieved higher accuracy than traditional machine learning methods 
+[11]. This study evaluated only a single CNN architecture, relied solely on image data, and did not 
+compare multiple deep learni ng or ensemble approaches.  
+ 
+Another study proposed an ensemble framework combining CNNs and RNNs to analyze leaf images 
+with time series environmental data. Ensemble techniques such as majority voting and weighted 
+averaging improved prediction accuracy on the Kaggle Cotton  dataset [12].  
+ 
+A separate study used CNNs to learn unsupervised features for 44 plant species and applied 
+deconvolutional visualization for feature interpretation. CNN based features outperformed traditional 
+handcrafted techniques [13]. The research focused only on speci es identification, not on disease 
+detection, nutrient deficiency, or integrated plant health monitoring using ensemble models.  
+=== PAGE 9 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 2  
+Another work developed a cotton leaf classification system using Random Forest, SVM, and 
+ensemble learning. The ensemble approach improved accuracy compared to individual classifiers 
+[14].  
+ 
+ 
+Table 1: Comprehensive Literature Gap  
+Proposed Solution:  
+Green Guard is a proposed multi modal, multi task deep learning system, which combines several 
+Artificial Intelligence methods for the monitoring of plant health. It employs a type of neural network 
+called a convolutional neural network (CNN) to extract vi sual features from leaf images, such as 
+spots, lesions, discoloration, and disease textures. Structured environmental and sensor data, such as 
+temperature, humidity, soil moisture, pH and nutrient levels are processed by Artificial Neural 
+Networks (ANNs) t o discover hidden patterns that influence plant health. In the case of sequential 
+and historical data, Recurrent Neural Networks (RNNs) models are used to model the temporal 
+dependencies and environmental trends over time.  
+Independent feature extraction is followed by a feature level fusion technique in which the image 
+feature vector, environmental and temporal feature vectors are concatenated and then input to a dense 
+fusion layer to learn cross modal interaction and adapti vely identify feature importance. An ensemble 
+learning approach is then adopted, which is composed of two MLP based models (shallow and deep) 
+to enhance the robustness and generalization of the system by inputting the same fused 
+representation.  
+Finally, the results of both models are fused by using the average voting ensemble method to get 
+stable predictions for several tasks, such as disease detection, nutrient deficiency identification and 
+stress analysis. The system can also do multi task lear ning with multiple output heads, allowing 
+prediction of multiple types of agricultural conditions from the same representation.  
+The system is developed with a focus on user friendly and low literacy friendly interface, using simple 
+visual indicators, icons and color coded alerts as the mediums. This means that even semi literate or 
+illiterate farmers can be able to understand the s tatus of the plants, results of the disease detection 
+and what needs to be done without having to be technical.  
+ 
+ 
+
+=== PAGE 10 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 3  
+ 
+Figure 2: Proposed System Workflow  
+Target Users : 
+• Farmers:  Farmers are the main users of the system. They can monitor crop health, detect 
+diseases and stress conditions early, and make better farming decisions to reduce crop losses 
+and improve productivity.  
+• Agricultural Expert s: Agricultural experts can use the system to analyze plant health 
+conditions and provide better guidance and recommendations for crop management.  
+• Greenhouse Managers:  Greenhouse managers can monitor environmental conditions such 
+as temperature, humidity, and soil moisture to maintain healthy crop growth inside controlled 
+environments.  
+• Agricultural Researchers:  Researchers can use the system for studies related to smart 
+farming, plant disease detection, and AI based agricultural monitoring.  
+• Agriculture Companies:  Agriculture companies can integrate the system into smart farming 
+solutions and automated crop monitoring platforms.  
+• Agricultural Consultants:  Agricultural consultants can use the system to identify crop issues 
+and suggest suitable treatments and farming practices to farmers.  
+• System Administrator:  The system administrator will manage system operations, user 
+access, datasets, and overall platform maintenance.  
+Objectives of the System:  
+The main objectives of Green Guard  are: 
+• To detect plant diseases using leaf images .  
+• To identify nutrient deficiencies in crops .  
+• To detect environmental stress conditions affecting plant growth .  
+• To combine image, sensor, and historical data for improved accuracy .  
+• To provide intelligent recommendations for farmers .  
+
+=== PAGE 11 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 4 • To generate biologically consistent predictions through AI based analysis and agricultural 
+knowledge validation . 
+• To support smart and precision farming practices using AI technologies.  
+ 
+User Research:  
+ 
+Observation  of Current Agricultural Process at Dogar Farm : 
+ 
+To understand how crop monitoring and plant health management work in the real world, our FYP 
+team conducted a field observation study. Since our project, Green   
+Guard, aims to solve actual practical issues using technology, we needed to see exactly how small to 
+medium scale farmers manage their crops, notice diseases, and keep track of environmental 
+conditions without automated systems.  
+ 
+ Field Details : 
+ 
+• Location:  “Dogar Farms” near railway station Kasur  
+• Type:  Typical semi  commercial small to medium scale farm environment.  
+• Crops Observed:  Tomatoes, potatoes, and green leafy vegetables  
+• Participants:  Farm supervisor (15+ years experience) , field workers  
+• Observation Timing:  Early morning farming activities, when crop inspection and field 
+work are most active.  
+• Duration:  Several hours of routine farm operations (crop checking, watering, and 
+maintenance tasks).  
+ 
+Scenario  and Ground Observations : 
+ 
+During our time at the farm, we walked alongside the workers to see their daily routine. The process 
+of checking crop health was entirely manual. The laborers walked slowly between the crop rows, 
+looking down at random plants to see if anything looked unus ual. If a leaf appeared yellow, spotted, 
+or wilted, they would stop to inspect it closer.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+      
+ 
+ 
+Early Blight (left) and Late Blight (right) on leaves of tomato crop, showing overlapping visual symptoms.  
+ 
+Figure 3:  Similar looking diseases  
+ 
+=== PAGE 12 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 5 While discussing their work, the farm supervisor explained that they do not have any scientific 
+tools to test the soil or environment on a daily basis. To check if the soil has enough water, the 
+workers simply dig up a tiny bit of mud with their hands or s ticks, look at its color, and feel the 
+texture to guess if it is dry or damp.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Air temperature and humidity are judged completely by personal physical feeling or by checking 
+general public weather apps on their phones, which only provide broad city level data rather than 
+precise micro climate conditions for their specific fields.  
+ 
+We noticed a clear example of manual limitations when the supervisor pointed out a patch of potato  
+tubers  that looked  diseased compared to other patch of healthy potatoes . A discussion started between 
+the supervisor and a laborer about whether the y were drying up due to intense morning heat, or if 
+they were suffering from an early stage fungal infection.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+      
+ 
+Because they lacked a clear way to verify the issue, they decided to wait a couple of days and apply 
+extra water, hoping it would fix itself. This trial and error method highlights how vulnerable 
+traditional farming is when dealing with early stage plant s tress 
+                   Figure 4: Manual Soil Check  
+Figure 5: Healthy Vs Diseased Potatoes  
+=== PAGE 13 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 6 . 
+        
+                    
+Figure 6: Healthy Crops Corn Plant (left) Tomato (right)  
+Identified Outcomes  
+ 
+Based on our observations and detailed conversations with the farm staff, we identified several 
+critical problems that directly impact crop yield and increase financial risks for farmers:  
+ 
+• Inefficient and Delayed Manual Disease Detection  
+• Extreme Difficulty in Early Symptom Identification  
+• Complete Lack of Micro  Environmental Monitoring  
+• Absence of Smart Agricultural Assistive Systems  
+           
+ 
+ 
+Figure 7: Identified Field Weaknesses  
+
+=== PAGE 14 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 7  
+             
+Figure 8: Distribution of Observed Agricultural Challenges  
+ 
+Observation  of Solution at FYP Student Led Research & Innovation Event:  
+ 
+The observation phase was conducted during participation in the FYP Student Led Research & 
+Innovation event, where different agriculture related monitoring challenges, smart farming ideas, and 
+practical crop management issues were discussed and analyzed. D uring this activity, observations 
+were made regarding the limitations of traditional plant monitoring approaches and the increasing 
+need for intelligent agricultural systems.  
+ 
+The observation revealed several important issues faced in agricultural environments:  
+• Farmers mainly rely on manual inspection for detecting plant diseases and stress conditions.  
+• Early symptoms of nutrient deficiencies and environmental stress are often difficult to 
+identify visually.  
+• Environmental factors such as temperature, humidity, and soil moisture significantly affect 
+plant health but are rarely analyzed together with visual symptoms.  
+• Existing systems mostly focus only on image based  disease detection and ignore multimodal 
+agricultural data.  
+• Lack of intelligent monitoring systems may lead to delayed diagnosis, reduced crop quality, 
+and productivity loss.  
+These observations helped define the core problem addressed by Green  Guard and supported the 
+development of a multimodal AI based agricultural monitoring framework.  
+ 
+The proposed system received encouraging feedback for its multimodal approach and relevance to 
+smart agriculture  multimodal learning . The project also received appreciation for addressing real 
+world agricultural challenges through computational techniques.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+=== PAGE 15 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 8  
+ 
+ 
+Figure 9: Observation Appreciation  and Award Letter  
+
+=== PAGE 16 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 9  
+Expected Benefits:  
+ 
+Expected Outcome  Potential Beneficiaries  
+Early detection of plant diseases  Small scale farmers, Commercial farming 
+industries, Government agricultural 
+departments  
+Improved crop monitoring and management  Commercial farming industries, Farming 
+organizations, Greenhouse managers  
+Better understanding of environmental effects on 
+crops  Agricultural researchers, Farming 
+organizations, Smart agriculture startups  
+Reduced crop losses  Small scale farmers, Commercial farming 
+industries, Government agricultural 
+departments  
+Increased farming efficiency  Commercial farming industries, Farming 
+organizations, Smart agriculture startups  
+Support for data driven agriculture  Agricultural researchers, Smart agriculture 
+startups, Precision farming organizations  
+Assistance in agricultural decision making  Farmers, Agricultural consultants, 
+Government agricultural departments  
+Improved reliability of plant health monitoring 
+through AI driven analysis and agricultural 
+knowledge  based validation  Agricultural researchers, Smart agriculture 
+startups, Precision farming organizations  
+ 
+1.2 Stakeholders Identification  
+ 
+The following stakeholders are involved in or affected by the proposed Green  Guard system. Each 
+stakeholder has different roles, responsibilities, and expectations from the system.  
+Stakeholder  Role  Expectations  Priority  
+Farmers  Primary End Users  Early disease detection, easy 
+monitoring, better crop 
+management  High  
+Agricultural Experts  Field Advisors  Accurate analysis, 
+environmental insights, reliable 
+predictions  High  
+=== PAGE 17 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 10 Project Supervisor 
+(Muhammad Zulkifl 
+Hasan)  Project Supervisor  Proper research methodology, 
+technical quality, successful 
+completion  High  
+Development Team  System Developers  Clear requirements, manageable 
+tasks, smooth integration  High  
+Government 
+Agricultural 
+Departments  Policy & Support 
+Stakeholders  Improved agricultural 
+productivity and smart farming 
+support  Medium  
+Investors  Funding Stakeholders  Innovative solution, scalability, 
+practical impact  Medium  
+Environmental 
+Agencies  Environmental 
+Observers  Sustainable farming support and 
+environmental monitoring  Low 
+Farming 
+Communities  Indirect Beneficiaries  Better farming awareness, 
+improved crop quality, reduced 
+losses  Medium  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+=== PAGE 18 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 11 2. Agile Framework Setup  
+The Green Guard project will be developed in an iterative fashion, with effective collaboration and 
+continuous improvement, by following the Agile software development methodology as outlined 
+below in the Scrum framework  
+The project will be broken up in small sprints of development, with each sprint dealing with a 
+functional piece of the system, such as pre  processing  the datasets, identifying diseases, analyzing 
+the environment, building the dashboard, or generating alerts. All epics, user stories, and tasks will 
+be kept in the team's product backlog. Sprint planning meetings will be held for the purpose of 
+choosing t asks, establishing sprint goals, and assigning sprint tasks. Weekly Scrums will be used to 
+monitor progress, review what has been accomplished, clarify issues encountered, and enhance team 
+coordination.  
+Sprint review and sprint sessions will take place after each sprint to discuss and reflect on what has 
+been accomplished, find areas for feedback and input, and plan for the next iteration. Backlog 
+management, sprint tracking, Kanban Boards, task organizat ion will be achieved using agile project 
+management tools like Notion The goal of the team is to continuously test, deliver the system on 
+time, and be flexible by applying Agile and Scrum practices . 
+Agile Team Roles :  
+Team Roles  Names  Responsibilities  
+ 
+Product Owner   
+Muhammad Zulkifl Hasan   
+• Defining project requirements  
+• Reviewing sprint outcomes  
+• Providing domain and research 
+guidance  
+ 
+Scrum Master  Minahil Kamran   
+• Managing sprint planning  
+• Monitoring task progress  
+• Conducting team meetings  
+ 
+Development 
+Team  Hamia Khalil ,  
+Minahil Kamran,  
+Laiba Farooq   
+• Data collection  
+• Backend and frontend 
+implementation  
+• DL model d evelopment  
+• System integration  
+• Testing and evaluation  
+• Documentation preparation  
+ 
+ 
+ 
+ 
+=== PAGE 19 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 12 Generalized Sprint Planning : 
+The Green  Guard project will follow a structured Agile Scrum  based development methodology 
+distributed across weekly and sprint  based milestones from Ma rch 2026 to January 2027. The project 
+duration is divided into 20 sprints each with a 2 week duration . Each sprint focuses on a specific 
+module or set of functionalities.  
+Sprint  No. Timeline  Duration  Generalized S print Activities  
+Sprint 1  Week 1 –2 
+(March 2026)  2 Weeks  • Requirement gathering  
+• Problem analysis  
+• Literature review  
+• Identification of project objectives  
+Sprint 2  Week 3 –4 
+(March 2026)  2 Weeks  • Research on multimodal deep 
+learning architectures  
+• Research on agricultural AI 
+systems, and related studies  
+Sprint 3  Week 5 –6 
+(April 2026)  2 Weeks  • Finalization of system architecture  
+• Workflow design  
+• Technology stack selection  
+• Project scope refinement  
+Sprint 4  Week 7 –8 
+(April 2026)  2 Weeks  • Initial system prototyping  
+• UI wireframing  
+• Dataset source identification  
+Sprint 5  Week 9 –10 
+(May 2026)  2 Weeks  • Dataset collection for plant disease 
+images  
+• Environmental sensor readings  
+• Temporal agricultural data  
+Sprint 6  Week 11 –12 
+(May 2026)  2 Weeks  Dataset cleaning, preprocessing, 
+normalization, augmentation, and 
+labeling  
+Sprint 7  Week 13 –14 
+(June 2026)  2 Weeks  Development of CNN  based image 
+feature extraction and disease 
+classification module  
+Sprint 8  Week 15 –16 
+(June 2026)  2 Weeks  Training, validation, optimization, and 
+performance tuning of CNN 
+architecture  
+=== PAGE 20 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 13 Sprint 9  Week 17 –18 
+(July 2026)  2 Weeks  Development of ANN  based 
+environmental and sensor data 
+processing module  
+Sprint 10  Week 19 –20 
+(July 2026)  2 Weeks  Development of RNN based temporal 
+trend analysis and sequential data 
+processing module  
+Sprint 11  Week 21 –22 
+(August 2026)  2 Weeks  Integration of CNN, ANN, and RNN 
+feature extraction pipelines into a 
+unified framework  
+Sprint 12  Week 23 –24 
+(August 2026)  2 Weeks  Implementation of feature 
+concatenation, dense feature fusion 
+layers, and multimodal representation 
+learning  
+Sprint 13  Week 25 –26 
+(September 
+2026)  2 Weeks  Development of Ensemble Model A 
+using shallow MLP architecture and 
+prediction aggregation  
+Sprint 14  Week 27 –28 
+(September 
+2026)  2 Weeks  Development of Ensemble Model B 
+using deep MLP architecture and 
+ensemble optimization  
+Sprint 15  Week 29 –30 
+(October 2026)  2 Weeks  Implementation of average voting 
+ensemble mechanism.  
+Sprint 16  Week 31 –32 
+(October 2026)  2 Weeks  Development of disease detection, 
+nutrient deficiency prediction, stress 
+analysis heads, and recommendation 
+engine  
+Sprint 17  Week 33 –34 
+(November 
+2026)  2 Weeks  • Frontend dashboard development  
+• Visualization modules  
+• API integration   
+Sprint 18  Week 35 –36 
+(November 
+2026)  2 Weeks  • Model evaluation  
+• Confusion matrix analysis  
+• Ablation studies  
+=== PAGE 21 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 14 Sprint 19  Week 35 –36 
+(December 
+2026)  2 Weeks  User interface enhancement and 
+deployment preparation  
+Sprint 20  Week 35 –36 
+(December 
+2026)  2 Weeks  Report writing and final 
+documentation  
+ 
+Agile Workflow  for Green Guard :  
+ 
+ 
+ 
+ 
+ 
+ 
+2.1 Epics For the Project  
+An Epic is a major functional module of the Green Guard system, such as disease detection, data 
+processing, or recommendation generation. It represents a high level feature that is further broken 
+into smaller tasks for implementation.  
+ 
+Table of Epic s 
+ 
+Epic ID  Epic Name                       Description  Related Problem 
+Area  
+EP-01 User 
+Authentication & 
+Management  Handles user registration, login, and 
+authentication for secure system access 
+control  Lack of secure 
+system access  
+EP-02 Image 
+Acquisition & 
+Processing  Performs image preprocessing, resizing, 
+normalization, augmentation, and 
+enhancement for plant disease detection  Raw agricultural 
+images are noisy 
+and inconsistent  
+EP-03 Dataset 
+Management  Handles collection, labeling, cleaning, and 
+organization of multimodal datasets  Poor quality and 
+unstructured 
+agricultural data  
+Figure 10: Agile Workflow  Green Guard  
+=== PAGE 22 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 15 EP-04 Data 
+Synchronization 
+& Alignment  Aligns image, environmental, and time -
+series data into a synchronized multimodal 
+format  Multimodal data 
+inconsistency  
+EP-05 CNN  based 
+Visual Feature 
+Extraction  Extracts visual disease features from plant 
+leaf images using CNN models  Difficulty in 
+detecting plant 
+diseases from raw 
+images  
+EP-06 ANN  based 
+Environmental 
+Processing  Processes environmental and sensor  based 
+data such as temperature, humidity, and 
+soil conditions using ANN  Environmental 
+factors are not 
+properly analyzed  
+EP-07 RNN Temporal 
+Trend Analysis  Captures time  series patterns in 
+environmental and crop data using 
+sequential models  Lack of temporal 
+pattern 
+understanding  
+EP-08 Multimodal 
+Feature Fusion  
+Pipeline  Combines CNN, ANN, and RNN outputs 
+to learn relationships between different 
+data modalities  Weak cross  
+modal learning 
+and lack of 
+integration  
+EP-09 Ensemble 
+Learning Module  Uses ensemble techniques to improve 
+prediction stability and accuracy  Low model 
+stability and 
+accuracy  
+EP-10 Plant Health 
+Analysis & 
+Detection  Detects plant diseases, nutrient 
+deficiencies, and environmental stress 
+using fused multimodal AI features  Delayed or 
+inaccurate crop 
+health detection  
+EP-11 Recommendation 
+Engine  Provides actionable farming advice such as 
+fertilizer, irrigation, and treatment 
+suggestions  Lack of decision 
+support for 
+farmers  
+EP-12 Backend API & 
+System 
+Integration  Integrates AI models into a unified 
+backend system for real -time inference  Lack of 
+deployable AI 
+system 
+integration  
+EP-13 Model Training, 
+Optimization & 
+Evaluation  Handles training pipeline, hyperparameter 
+tuning, loss optimization, and model 
+evaluation metrics  Poor model 
+performance and 
+lack of structured 
+evaluation  
+EP-14 Explainability & 
+Confidence 
+Analysis  Provides prediction confidence scores and 
+interpretable AI outputs  Lack of trust in 
+AI predictions  
+EP-15 User Interface & 
+Dashboard 
+Visualization  Displays predictions, analytics, graphs, and 
+system insights in an interactive dashboard  Complex AI 
+system not user -
+friendly  
+EP-16 Alert & 
+Notification 
+System  Generates real  time alerts for diseases, 
+nutrient deficiencies, and environmental 
+risks  Delayed 
+awareness of 
+critical crop 
+conditions  
+EP-17 Deployment & 
+System 
+Maintenance  Handles system deployment, hosting, 
+monitoring, and model updates  AI systems face 
+deployment and 
+maintenance 
+challenges  
+EP-18 Security  Ensures secure authentication, data 
+protection, encrypted storage, and API 
+security  User data and 
+system APIs are 
+vulnerable to 
+=== PAGE 23 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 16 unauthorized 
+access  
+ 
+2.2 Product Backlog  
+ 
+A Backlog is a specific, actionable task within an Epic that contributes to building the Green Guard 
+system. It defines a small development step like training a model, processing data, or building a UI 
+feature.  
+ 
+Product Backlog Table  
+ 
+Backlog ID  Epic  Feature Description  Priority  
+PB-01 User Authentication & 
+Management  Implement user registration with email and 
+password  High  
+PB-02 User Authentication & 
+Management  Develop secure login and logout 
+functionality  High  
+PB-03 User Authentication & 
+Management  Implement password reset and recovery  Medium  
+PB-04 User Authentication & 
+Management  Create user profile management module  Medium  
+PB-05 Image Acquisition & 
+Processing  Enable plant image upload from device  High  
+PB-06 Image Acquisition & 
+Processing  Implement image preprocessing (resizing, 
+normalization, enhancement)  High  
+PB-07 Image Acquisition & 
+Processing  Apply image augmentation techniques for 
+training  Medium  
+PB-08 Dataset Management  Collect and organize multimodal 
+agricultural datasets  High  
+PB-09 Dataset Management  Store image, environmental, and temporal 
+data in database  High  
+PB-10 Data Synchronization 
+& Alignment  Synchronize image and environmental 
+datasets  High  
+PB-11 Data Synchronization 
+& Alignment  Align temporal records for sequential 
+analysis  Medium  
+PB-12 CNN -based Visual 
+Feature Extraction  Develop and train CNN model for plant 
+feature extraction  High  
+PB-13 ANN -based 
+Environmental Data 
+Processing  Process environmental and weather data 
+using ANN  High  
+=== PAGE 24 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 17 PB-14 RNN -based Temporal 
+Trend Analysis  Analyze temporal crop patterns using 
+RNN models  High  
+PB-15 Multimodal Feature 
+Fusion Pipeline  Combine image, environmental, and 
+temporal features  High  
+PB-16 Multimodal Feature 
+Fusion Pipeline  Develop multimodal learning architecture 
+for joint representation learning  High  
+PB-17 Ensemble Learning 
+Module  Implement ensemble learning with model 
+averaging and optimization  High  
+PB-18 Plant Health Analysis 
+& Detection  Detect plant diseases, nutrient deficiencies, 
+and environmental stress  High  
+PB-19 Recommendation 
+Engine  Generate treatment, fertilizer, and 
+irrigation recommendations  High  
+PB-20 Backend API & 
+System Integration  Develop backend APIs and integrate AI 
+models for inference  High  
+PB-21 Model Training, 
+Optimization & 
+Evaluation  Train models, tune hyperparameters, and 
+evaluate using performance metrics  High  
+PB-22 Explainability & 
+Confidence Analysis  Provide prediction confidence scores and 
+explainable AI outputs  Medium  
+PB-23 User Interface & 
+Dashboard 
+Visualization  Design interactive dashboard for 
+predictions and analytics  High  
+PB-24 Alert & Notification 
+System  Send real -time alerts for plant diseases and 
+stress conditions  High  
+PB-25 Deployment & System 
+Maintenance  Deploy system on cloud/server and 
+maintain performance  High  
+PB-26 Security  Implement authentication, encryption, and 
+secure API access  High  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+=== PAGE 25 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 18 2.3 User Stories  
+ 
+User stories define system requirements from the end  user perspective, describing what each user 
+wants to achieve from the Green Guard system. Each story is linked to a backlog item with clear 
+acceptance criteria to ensure proper implementation and validation.  
+ 
+User Story Board  
+ 
+Story 
+ID Backlog ID  User Story  Priority  Acceptance 
+Criteria  Focal 
+Person  
+US-
+01 PB-01 As a user, I want to 
+register an account so 
+that I can access the 
+system  High  Valid 
+email/password 
+creates account; 
+invalid input shows 
+error  Minahil 
+Kamran  
+US-
+02 PB-02 As a user, I want to log 
+in so that I can securely 
+access my dashboard  High  Correct credentials 
+allow login; invalid 
+credentials show 
+error  Minahil 
+Kamran  
+US-
+03 PB-03 As a user, I want to 
+reset my password so I 
+can recover my account  Medium  Reset email sent 
+and link allows 
+password update  Hamia 
+Khalil  
+US-
+04 PB-04 As a user, I want to 
+manage my profile so I 
+can update my 
+information  Medium  Profile data can be 
+viewed and updated 
+successfully  Minahil 
+Kamran  
+US-
+05 PB-05 As a user, I want to 
+upload plant images so 
+the system can analyze 
+them  High  Valid images 
+uploaded; invalid 
+formats rejected  Laiba 
+Farooq  
+US-
+06 PB-10 As a system, I want to 
+synchronize multimodal 
+datasets for accurate 
+analysis  High  Image, 
+environmental, and 
+temporal data are 
+correctly aligned  Hamia 
+Khalil  
+US-
+07 PB-12 As a user, I want to 
+extract visual features 
+using CNN for disease 
+detection  High  CNN successfully 
+extracts meaningful 
+image features  Minahil 
+Kamran, 
+Hamia 
+Khalil  
+US-
+08 PB-13 As a user, I want to 
+process environmental 
+data using ANN  High  ANN generates 
+valid environmental 
+feature outputs  Minahil 
+Kamran, 
+Hamia 
+Khalil  
+US-
+09 PB-14 As a user, I want to 
+analyze temporal trends 
+using RNN  High  RNN processes 
+sequential data and 
+produces trends  Minahil 
+Kamran, 
+Hamia 
+Khalil  
+=== PAGE 26 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 19 US-
+10 PB-15 As a user, I want to fuse 
+multimodal features for 
+improved prediction  High  CNN, ANN, RNN 
+outputs are 
+successfully 
+combined  Minahil 
+Kamran, 
+Hamia 
+Khalil, 
+Laiba 
+Farooq  
+US-
+11 PB-16 As a developer,  I want 
+ensemble learning to 
+improve prediction 
+reliability  High  Ensemble model 
+improves prediction 
+accuracy  Minahil 
+Kamran, 
+Hamia 
+Khalil, 
+Laiba 
+Farooq  
+US-
+12 PB-17 As a user, I want to 
+detect plant health 
+issues from multimodal 
+data High  System detects 
+disease, deficiency, 
+and stress correctly  Minahil 
+Kamran, 
+Hamia 
+Khalil, 
+Laiba 
+Farooq  
+US-
+13 PB-19 As a user, I want 
+recommendations to 
+improve crop health  High  System provides 
+actionable farming 
+suggestions  Minahil 
+Kamran, 
+Hamia 
+Khalil  
+US-
+14 PB-23 As a user, I want visual 
+analytics so that I can 
+easily understand 
+environmental and 
+prediction trends  High  Graphs and charts 
+display real -time 
+system data without 
+rendering errors  Minahil 
+Kamran  
+US-
+15 PB-19 As a user, I want alerts 
+so that I can be notified 
+immediately about crop 
+risks  High  System triggers 
+alerts when disease 
+or stress conditions 
+are detected  Laiba 
+Farooq  
+US-
+16 PB-19 As a system, I want 
+backend APIs to 
+connect frontend and AI 
+models  High  APIs return correct 
+responses within 
+acceptable time  Hamia 
+Khalil  
+US-
+17 PB-20 As a researcher, I want 
+to evaluate model 
+performance  High  Metrics like 
+accuracy, precision, 
+recall, F1 -score 
+generated  Laiba 
+Farooq  
+US-
+18 PB-21 As a user, I want to 
+view confidence scores 
+to trust predictions  Medium  Confidence score 
+displayed with each 
+prediction  Laiba 
+Farooq  
+US-
+19 PB-22 As a researcher, I want 
+explainable AI outputs 
+for interpretation  Medium  Visual explanations 
+highlight important 
+features  Minahil 
+Kamran,  
+US-
+20 PB-23 As a user, I want a 
+dashboard to view 
+analytics and results  High  Dashboard loads 
+predictions and 
+graphs correctly  Minahil 
+Kamran,  
+=== PAGE 27 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 20 US-
+21 PB-24 As a user, I want visual 
+analytics to understand 
+trends  High  Charts display 
+environmental and 
+prediction trends  Minahil 
+Kamran  
+US-
+22 PB-25 As a user, I want alerts 
+for crop risks  High  System triggers 
+alerts for diseases 
+and stress 
+conditions  Hamia 
+Khalil  
+US-
+23 PB-26 As a developer, I want 
+deployment setup so the 
+system runs in 
+production  Medium  System is 
+successfully 
+deployed and 
+accessible  Laiba 
+Farooq  
+US-
+24 PB-27 As a user, I want secure 
+authentication and data 
+protection  High  Unauthorized 
+access blocked; 
+sessions secured  Minahil 
+Kamran, 
+Hamia 
+Khalil  
+ 
+2.4 Story Points & Estimation  
+Story point estimation in the Green Guard project is used to measure the effort and complexity of 
+developing AI modules such as disease detection, multimodal fusion, and recommendation systems. 
+It helps the team plan and distribute work across sprints base d on the difficulty of each feature. Story 
+points are assigned using values like 1, 2, 3, 5, and 8 to represent increasing levels of difficulty.  
+ 
+ 
+Story Point Estimation Table  
+ 
+ 
+Story 
+ID User Story (Short)  Complexity 
+Level  Story 
+Points  Justification  
+US-
+01 User Registration  Medium  3 Requires form validation, secure 
+password handling, and database 
+integration  
+US-
+02 User Login  Medium  3 Authentication logic with session 
+management and error handling  
+US-
+03 Password Reset  Medium  3 Email verification with secure 
+token  based reset mechanism  
+US-
+04 Profile Management  Low 2 Basic CRUD operations for user 
+profile data  
+US-
+05 Image Upload  Medium  5 File handling, validation, and 
+preprocessing pipeline integration  
+US-
+06 Data Synchronization  High  8 Complex alignment of image, 
+environmental, and temporal 
+datasets  
+US-
+07 CNN Feature Extraction  High  8 Deep learning model design and 
+feature extraction from images  
+=== PAGE 28 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 21 US-
+08 Environmental Data 
+Processing (ANN)  High  5 ANN design and structured sensor 
+data preprocessing  
+US-
+09 Temporal Analysis 
+(RNN)  High  8 Sequential modeling using RNN/    
+for time  series data  
+US-
+10 Feature Fusion Pipeline  High  8 Integrates CNN, ANN, and RNN 
+outputs into unified representation  
+US-
+11 Ensemble Learning  High  8 Combines multiple models to 
+improve prediction stability and 
+accuracy  
+US-
+12 Disease Detection  High  5 Classification based on fused 
+multimodal features  
+US-
+13 Nutrient Deficiency 
+Detection  High  5 Multi  class classification of 
+nutrient imbalance  
+US-
+14 Environmental Stress 
+Detection  High  5 Detection of stress conditions 
+using multimodal inputs  
+US-
+15 Recommendation System  High  5 Rule -based and AI -driven farming 
+recommendations  
+US-
+16 Backend API Integration  Medium  5 API development and integration 
+with AI models  
+US-
+17 Model Evaluation 
+Metrics  Medium  3 Computation of accuracy, 
+precision, recall, F1 -score  
+US-
+18 Confidence Score 
+Display  Low 2 Simple UI display of prediction 
+confidence values  
+US-
+19 Explainable AI 
+Visualization  High  5 Heatmaps and interpretability 
+techniques for model explanation  
+US-
+20 Dashboard UI  Medium  5 UI development with charts and 
+analytics integration  
+US-
+21 Visual Analytics 
+(Graphs)  Low 3 Chart rendering and 
+environmental trend visualization  
+US-
+22 Alert System  Medium  5 Event -based notifications and risk 
+alerts  
+US-
+23 Deployment Setup  High  8 Server setup, hosting, and 
+production configuration  
+US-
+24 Security & 
+Authentication  High  5 Secure login, authorization, and 
+session management  
+US-
+25 Data Encryption  High  5 Encryption of stored and 
+transmitted sensitive data  
+  Total Points  112  
+ 
+=== PAGE 29 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 22 2.5 Sprint Planning & Sprint Backlog  
+Sprint planning divides the Green Guard system into iterative development cycles. Each sprint 
+contains selected user stories with defined goals and estimated story points to ensure balanced 
+workload distribution and incremental system development.  
+ 
+Sprint Planning Table  
+ 
+Sprint No.  Duration  Sprint Goal  Total Story Points  
+Sprint 1  2 Weeks  Implement user authentication system  
+US-01, US -02 6 
+Sprint 2  2 Weeks  Password recovery and profile management  
+US-03, US -04 5 
+Sprint 3  2 Weeks  Image upload and preprocessing pipeline  
+US-05 5 
+Sprint 4  2 Weeks  Multimodal dataset synchronization  
+US-06 8 
+Sprint 5  2 Weeks  CNN -based feature extraction  
+US-07 8 
+Sprint 6  2 Weeks  ANN -based environmental data processing  
+US-08 5 
+Sprint 7  2 Weeks  RNN -based temporal analysis  
+US-09 8 
+Sprint 8  2 Weeks  Multimodal feature fusion  
+US-10 8 
+Sprint 9  2 Weeks  Ensemble learning module  
+US-11 8 
+Sprint 10  2 Weeks  Plant disease, nutrient & stress detection  
+US-12, US -13, US -14 15 
+Sprint 11  2 Weeks  Recommendation engine  
+US-15 5 
+=== PAGE 30 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 23 Sprint 12  2 Weeks  Backend API integration  
+US-16 8 
+Sprint 13  2 Weeks  Evaluation and confidence scoring  
+US-17, US -18 6 
+Sprint 14  2 Weeks  Explainable AI visualization  
+US-19 5 
+Sprint 15  2 Weeks  Dashboard and visual analytics  
+US-20, US -21 8 
+Sprint 16  2 Weeks  Alert and notification system  
+US-22 5 
+Sprint 17  2 Weeks  Security and authentication hardening  
+US-20, US -21 10 
+Sprint 18  2 Weeks  Deployment setup  
+US-22 8 
+Sprint 19  2 Weeks  Bug fixing and optimization  5 
+Sprint 20  2 Weeks  Final testing and documentation  3 
+=== PAGE 31 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 24 3. Functional Requirements  
+3.1 Use Case Diagram  
+ 
+Figure 11: Diagram showing breakdown of Green Guard into major use cases  
+=== PAGE 32 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 25  
+Use Case Diagram Table  
+ 
+Use 
+Case 
+ID Use Case Name  Primary Actor  Description  Mapped 
+User 
+Story 
+ID User Story  
+UC-
+01 User Registration  New User  Allows a new 
+user to create an 
+account using 
+email and 
+password  US-01 As a user, I want 
+to register an 
+account so that I 
+can access the 
+system  
+UC-
+02 User Login  Registered User  Enables secure 
+login to access 
+dashboard and 
+system features  US-02 As a user, I want 
+to log in so that I 
+can securely 
+access my 
+dashboard  
+UC-
+03 Password 
+Recovery  User  Allows users to 
+reset password 
+via email 
+verification  US-03 As a user, I want 
+to reset my 
+password so that I 
+can recover my 
+account  
+UC-
+04 Profile 
+Management  Registered User  Allows users to 
+view and update 
+profile 
+information  US-04 As a user, I want 
+to manage my 
+profile so that I 
+can update my 
+personal 
+information  
+UC-
+05 Image Upload & 
+Preprocessing  Farmer/User  Enables upload 
+and 
+preprocessing of 
+plant images for 
+analysis  US-05 As a user, I want 
+to upload plant 
+images so that the 
+system can 
+analyze plant 
+health  
+UC-
+06 Multimodal Data 
+Synchronization  System  Synchronizes 
+image, 
+environmental, 
+and temporal data  US-06 As a system, I 
+want to 
+synchronize 
+multimodal 
+datasets so that 
+analysis can be 
+performed 
+accurately  
+UC-
+07 CNN Feature 
+Extraction  AI System  Extracts visual 
+features from US-07 As a system, I 
+want to extract 
+visual features so 
+that diseases can 
+=== PAGE 33 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 26 plant images 
+using CNN  be identified 
+accurately  
+UC-
+08 Environmental 
+Data Processing  AI System  Processes 
+environmental 
+data using ANN  US-08 As a system, I 
+want to process 
+environmental 
+data so that crop 
+conditions can be 
+evaluated  
+UC-
+09 Temporal Trend 
+Analysis  AI System  Analyzes 
+sequential data 
+using RNN  US-09 As a system, I 
+want to analyze 
+temporal trends 
+so that crop 
+behavior can be 
+understood over 
+time 
+UC-
+10 Feature Fusion  AI System  Combines CNN, 
+ANN, and RNN 
+outputs into 
+unified 
+representation  US-10 As a system, I 
+want to combine 
+multiple data 
+sources so that I 
+can make better 
+predictions  
+UC-
+11 Ensemble 
+Learning 
+Prediction  AI System  Combines 
+multiple model 
+outputs for 
+improved 
+accuracy  US-11 As a system, I 
+want to combine 
+model outputs so 
+that predictions 
+become more 
+reliable  
+UC-
+12 Disease 
+Detection  Farmer/User  Detects plant 
+diseases with 
+confidence score  US-12 As a user, I want 
+to detect plant 
+diseases so that I 
+can take timely 
+action  
+UC-
+13 Nutrient 
+Deficiency 
+Detection  Farmer/User  Identifies nutrient 
+deficiencies in 
+crops  US-13 As a user, I want 
+to detect nutrient 
+deficiencies so 
+that I can 
+improve crop 
+health  
+UC-
+14 Environmental 
+Stress Detection  Farmer/User  Detects stress 
+conditions in 
+crops  US-14 As a user, I want 
+to detect 
+environmental 
+stress so that I 
+can protect crops 
+from damage  
+=== PAGE 34 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 27 UC-
+15 Recommendation 
+System  Farmer/User  Generates crop 
+recommendations 
+based on 
+predictions  US-15 As a user, I want 
+recommendations 
+so that I can 
+improve crop 
+yield  
+UC-
+16 Backend API 
+Integration  System/Developer  Enables 
+communication 
+between frontend 
+and AI models  US-16 As a system, I 
+want APIs so that 
+frontend and 
+models can 
+communicate  
+UC-
+17 Model 
+Evaluation  Researcher  Generates 
+performance 
+metrics 
+(accuracy, 
+precision, recall, 
+F1-score)  US-17 As a researcher, I 
+want evaluation 
+results so that I 
+can measure 
+model 
+performance  
+UC-
+18 Confidence 
+Score Display  User  Displays 
+prediction 
+confidence values  US-18 As a user, I want 
+to view 
+prediction 
+confidence so 
+that I can trust 
+results  
+UC-
+19 Explainable AI 
+Visualization  Researcher  Provides 
+interpretability 
+using visual 
+explanations  US-19 As a researcher, I 
+want explainable 
+AI so that I can 
+interpret model 
+decisions  
+UC-
+20 Dashboard 
+Visualization  User  Displays 
+predictions and 
+analytics in a 
+dashboard  US-20 As a user, I want 
+a dashboard so 
+that I can view all 
+system outputs in 
+one place  
+UC-
+21 Visual Analytics  User  Provides graphs 
+and trend 
+visualization  US-21 As a user, I want 
+visual analytics 
+so that I can 
+understand trends 
+easily  
+UC-
+22 Alert & 
+Notification 
+System  User  Sends alerts for 
+crop risks  US-22 As a user, I want 
+alerts so that I 
+can be notified of 
+crop risks 
+immediately  
+=== PAGE 35 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 28 UC-
+23 Secure 
+Authentication & 
+Authorization  User/System  Ensures secure 
+login and access 
+control  US-24 As a user, I want 
+secure 
+authentication so 
+that my data 
+remains protected  
+UC-
+24 Data Encryption  System  Encrypts 
+sensitive data for 
+security  US-25 As a system, I 
+want data 
+encryption so that 
+privacy is 
+maintained  
+UC-
+25 System 
+Deployment  Developer  Deploys system 
+in production 
+environment  US-23 As a developer, I 
+want deployment 
+setup so that 
+system can run in 
+production  
+UC-
+26 Administrator 
+User 
+Management  Administrator  Manages users, 
+roles, and 
+permissions  US-01 As an admin, I 
+want to manage 
+users so that 
+system access is 
+controlled 
+properly  
+UC-
+27 System 
+Monitoring & 
+Logs  Administrator  Monitors system 
+performance and 
+logs US-24 As an admin, I 
+want to monitor 
+system activity so 
+that issues can be 
+detected early  
+UC-
+28 Dataset & Model 
+Management  Administrator  Manages datasets 
+and model 
+updates  US-06 As an admin, I 
+want to manage 
+datasets/models 
+so that system 
+stays updated  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+=== PAGE 36 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 29 4. Non-functional Requirements  
+ 
+4.1 Reliability  
+ 
+Green Guard ensures reliable detection and alert generation by maintaining consistent uptime and 
+stable AI model performance. The system is designed to handle continuous user requests without 
+failure, even under heavy usage. Following table shows the relia bility breakdown:  
+ 
+Requirement ID  Requirement Description  Related User Stories  
+NFR -R1 The system sh ould provide 
+stable and consistent 
+prediction results during 
+continuous operation.  US-12, US -13, US -14 
+NFR -R2 The system sh ould maintain 
+accurate synchronization of 
+image, environmental, and 
+temporal datasets before 
+analysis.  US-06 
+NFR -R3 The system sh ould recover 
+gracefully from invalid 
+uploads, failed requests, or 
+interrupted operations.  US-05, US -16 
+NFR -R4 The system sh ould ensure 
+reliable communication 
+between frontend modules 
+and backend AI services.  US-16 
+NFR -R5 The system should  securely 
+maintain active user sessions 
+during system usage.  US-02, US -24 
+ 
+4.2 Performance  
+         
+The system is optimized for fast response time in processing web inputs and generating disease or 
+stress predictions. Efficient backend processing and lightweight API design ensure minimal delay 
+between user action and results. This supports near real -time monitoring for users.  
+ 
+ 
+Requirement ID  Requirement Description  Related User Stories  
+NFR -P1 The system sh ould process 
+uploaded plant images within 
+acceptable response time 
+limits.  US-05, US -12 
+NFR -P2 The system sh ould generate 
+prediction results efficiently US-10, US -11 
+=== PAGE 37 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 30 after receiving multimodal 
+input data.  
+NFR -P3 Backend APIs sh ould return 
+prediction responses with low 
+latency.  US-16 
+NFR -P4 The dashboard sh ould load 
+analytics, predictions, and 
+graphs without significant 
+delay.  US-20, US -21 
+NFR -P5 The system sh ould support 
+simultaneous user access 
+without major performance 
+degradation.  US-01, US -02, US -20 
+ 
+ 
+4.3 Use-ability  
+          
+Green Guard provides a simple and intuitive web interface so users can easily upload or input data 
+and view results. Clear dashboards and visual feedback make it accessible even for non -technical 
+users. The design focuses on ease of navigation and quick un derstanding of plant health status.  
+ 
+Requirement ID  Requirement Description  Related User Stories  
+NFR -U1 The system should  provide a 
+simple and user friendly  
+interface for all users.  US-01, US -20 
+NFR -U2 Users sh ould be able to upload 
+plant images and access 
+prediction results easily.  US-05, US -12 
+NFR -U3 Prediction outputs sh ould be 
+displayed in a clear and 
+understandable format.  US-18, US -20 
+NFR -U4 The system should  provide 
+visual analytics and 
+confidence scores for better 
+understanding.  US-18, US -21 
+NFR -U5 Error messages and validation 
+alerts shall be understandable 
+and informative.  US-01, US -02, US -05 
+ 
+ 
+ 
+=== PAGE 38 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 31 4.4 Other  Non-functional Requirements  
+ 
+4.4.1 Security Requirements  
+The system ensures secure user authentication, encrypted data storage, and protected API access to 
+safeguard sensitive agricultural and user information.  
+           
+Requirement ID  Requirement Description  Related User Stories  
+NFR -S1 The system sh ould provide 
+secure authentication and 
+authorization mechanisms.  US-02, US -24 
+NFR -S2 Sensitive user data sh ould be 
+encrypted during storage and 
+transmission.  US-25 
+NFR -S3 Unauthorized access attempts 
+should be detected and 
+restricted.  US-24 
+NFR -S4 User sessions sh ould remain 
+protected during active usage.  US-24 
+ 
+4.4.2 Scalability Requirements  
+Green Guard is designed to handle increasing numbers of users and plant data efficiently by 
+supporting modular cloud based expansion without performance degradation.  
+     
+Requirement ID  Requirement Description  Related User Stories  
+NFR -SC1 The system architecture 
+should support future 
+integration of additional 
+datasets and AI models.  US-06, US -10 
+NFR -SC2 The system sh ould support 
+increasing numbers of users 
+and agricultural datasets.  US-20 
+NFR -SC3 The framework sh ould 
+support future integration of 
+additional sensor modalities.  US-08, US -09 
+ 
+ 
+=== PAGE 39 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 32 4.4.3 Explainability & Validation Requirements  
+Green Guard provides interpretable AI outputs, allowing users to understand disease detection results 
+and recommendations with clear, human  readable insights.  
+           
+Requirement ID  Requirement Description  Related User Stories  
+NFR -E1 The system should  provide 
+explainable AI visualizations 
+for prediction interpretation.  US-19 
+NFR -E2 Prediction confidence scores 
+should be displayed with 
+outputs to improve user trust.  US-18 
+NFR -E3 Biological and agricultural 
+knowledge sh ould be used 
+only for dataset interpretation 
+and output validation 
+purposes.  US-12, US -13, US -14 
+NFR -E4 All system analysis and 
+prediction operations sh ould 
+remain computational and AI -
+driven.  US-07, US -08, US -09, US -10 
+ 
+  
+=== PAGE 40 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 33 5. Scrum Activities Plan  
+ 
+The Green  Guard project adopts the Scrum framework under the Agile methodology to ensure 
+iterative development, continuous feedback, and efficient collaboration among team members. 
+Scrum activities are structured to support the distributed responsibilities of the te am and the 2  week 
+sprint cycle defined for the project.  
+1. Daily Scrum Activities  
+Daily Scrum activities are conducted to ensure continuous progress tracking and coordination among 
+team members. Due to the academic schedule and distributed working environment, a hybrid 
+communication approach is adopted.  
+Approach:  
+ 
+• The team maintains daily progress updates through a dedicated communication channel  
+• Updates are also reflected in the Notion Scrum board for transparency and tracking.  
+• Each team member provides a structured update including:  
+• Tasks completed since the last update . 
+• Planned tasks for the current day . 
+• Any technical or implementation blockers . 
+Frequency:  
+ 
+• Daily  
+• Short synchronization meetings: 2  times per  sprint (10–15 minutes)  when required  
+ 
+Objective:  
+ 
+• Ensure continuous visibility of project progress  
+• Identify and resolve blockers early  
+• Maintain alignment across development tasks  
+ 
+2. Sprint Review Process  
+Sprint Review meetings are conducted at the e very 2 week sprint to evaluate completed work and 
+demonstrate functional deliverables.  
+Approach:  
+ 
+• Each team member presents completed sprint tasks based on assigned responsibilities:  
+• Backend and frontend modules  
+• AI/ML model development and integration  
+• Data preprocessing and evaluation components  
+• Functional demonstrations are conducted using GitHub repositories, or Notion 
+documentation updates.  
+ 
+Participants:  
+ 
+• Development Team  
+• Product Owner  
+=== PAGE 41 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 34 Activities:  
+ 
+• Presentation of completed user stories . 
+• Verification of acceptance criteria .  
+• Review of implemented features .  
+• Collection of feedback from the Product Owner . 
+ 
+Outcome:  
+ 
+• Approval or revision of completed sprint deliverables . 
+• Updates to product backlog if required . 
+• Identification of improvements for future sprints . 
+ 
+3. Sprint Retrospective Process  
+Sprint Retrospective sessions are conducted after each Sprint Review to reflect on the development 
+process and improve future performance.  
+ 
+Approach:  
+ 
+• Internal team meeting conducted  
+• Findings are documented in the Notion workspace under “Sprint Retrospective Notes”  
+ 
+Activities:  
+ 
+Each retrospective focuses on the following aspects:  
+• Successful practices during the sprint . 
+• Technical or coordination challenges faced . 
+• Areas requiring improvement . 
+ 
+Key Focus Areas:  
+ 
+• Optimization of AI model training and performance . 
+• Improvement in dataset preprocessing and integration . 
+• Enhancement of frontend  backend communication . 
+• Better workload distribution and time management . 
+ 
+Outc ome: 
+ 
+• Continuous process improvement . 
+• Increased team efficiency across sprints . 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+=== PAGE 42 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 35 5.1 Kanban Board / Task Tracking  
+The Green  Guard project follows an Agile  based task tracking system using a Kanban board 
+implemented in Notion. This ensures transparency, continuous progress monitoring, and effective 
+collaboration among team members . 
+Task Tracking Methodology : 
+ 
+All project tasks are managed using a Notion Kanban board, which provides a visual workflow for 
+tracking development progress across all modules of the system.  
+ 
+The Kanban system is divided into the following task states:  
+• To Do:  Tasks that are planned and not yet started .  
+• In Progress:  Tasks currently being actively developed .  
+• Testing:  Tasks under validation, evaluation, or debugging .  
+• Done:  Fully completed and verified tasks .  
+ 
+Workflow Structure : 
+ 
+The project follows a hybrid task assignment model, where:  
+• Tasks are assigned based on module ownership (Frontend, Backend, AI/ML)  
+• Team members can assist each other across modules when required .  
+• This ensures flexibility while maintaining accountability .  
+ 
+Tool Used : 
+ 
+The following tools are used for task tracking and collaboration:  
+• Notion: Primary tool for task management and progress tracking .  
+• GitHub: Used for code version control and integration tracking .  
+The Notion board is accessible to all team members and is also shared with the supervisor for real  
+time project monitoring and evaluation.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+=== PAGE 43 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 36 Kanban Board:  
+ 
+Sprint wise Kanban Board:  
+ 
+ 
+ 
+    
+Figure 12: Sprint Wise Notion Kanban Board  
+ 
+
+=== PAGE 44 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 37  
+Task wise Kanban Board : 
+ 
+To Do  In Progress  Testing  Done  
+CNN feature 
+extraction model 
+development  Dataset collection 
+(plant images & 
+sensor data)  Basic dataset sanity checks 
+(missing values, duplicates 
+removal)  Project structure 
+setup  
+ANN environmental 
+processing module  Environmental data 
+collection setup  Initial image quality 
+validation (blur/invalid 
+images filtering)  Database schema 
+design  
+RNN temporal 
+analysis model  System architecture 
+design (UML , 
+workflow)  API response format 
+validation (basic endpoints)  User 
+authentication 
+system  
+Feature fusion (CNN 
++ ANN + RNN) 
+design  UI wireframing  and  
+Prototyping  
+(dashboard design)  Model input shape 
+validation 
+(CNN/ANN/RNN 
+compatibility checks)  Requirement 
+analysis 
+completed  
+Ensemble learning 
+model design    
+GitHub 
+repository setup  
+Recommendation 
+engine development    
+Notion 
+workspace setup  
+Model evaluation 
+metrics 
+implementation plan    
+Initial dataset 
+cleaning & 
+labeling  
+Security & encryption 
+module design     
+Image upload & 
+preprocessing pipeline     
+Backend API 
+development     
+ 
+ 
+ 
+=== PAGE 45 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 38 5.2 Acceptance Criteria  
+ 
+Feature  Acceptance 
+Conditions  Test Scenarios  Expected Results  
+User Registration & 
+Login  Valid users can 
+register/login; invalid 
+inputs rejected  Register new user, 
+login with wrong 
+credentials  Account created 
+successfully; error 
+shown for invalid login  
+Password Recovery  Email based reset 
+link works securely  Request password 
+reset  Reset link sent; 
+password updated 
+successfully  
+Image Upload & 
+Preprocessing  Supports valid image 
+formats and 
+preprocessing 
+pipeline  Upload JPG/PNG, 
+upload invalid file  Valid images 
+processed; invalid files 
+rejected  
+Multimodal Data Sync  Image, 
+environmental, and 
+temporal data aligned 
+correctly  Upload full/partial 
+multimodal data  Unified dataset created; 
+error if missing data  
+CNN Disease 
+Detection  CNN correctly 
+classifies plant 
+diseases  Upload 
+diseased/healthy leaf 
+image  Correct label with 
+confidence score  
+ANN Environmental 
+Analysis  Processes sensor data 
+accurately  Normal vs extreme 
+environmental input  Correct environmental 
+feature output  
+RNN Temporal 
+Analysis  Captures time  series 
+trends correctly  Stable vs fluctuating 
+historical data  Accurate trend 
+prediction generated  
+Feature Fusion 
+(CNN+ANN+RNN)  Combined features 
+form unified 
+representation  Full multimodal 
+input test  Single optimized 
+feature vector produced  
+Ensemble Prediction  Final model improves 
+accuracy via 
+ensemble  Compare single vs 
+ensemble output  More stable and 
+accurate prediction  
+=== PAGE 46 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 39 Recommendation 
+System  Generates valid 
+agricultural advice  Disease/nutrient 
+deficiency cases  Relevant 
+recommendations 
+shown  
+Dashboard & 
+Visualization  Displays analytics 
+without UI errors  Load dashboard with 
+data Charts, graphs, 
+predictions displayed 
+correctly  
+Alert System  Generates real  time 
+alerts for risks  Disease/stress 
+detection event  Instant alert notification 
+triggered  
+Security & 
+Authentication  Prevent unauthorized 
+access  Invalid login / API 
+access attempt  Access denied; session 
+secured  
+Performance & 
+Reliability  System responds 
+within acceptable 
+time Multiple users, large 
+input data  Stable response, no 
+system crash  
+ 
+5.3 Release  Criteria  
+Area  Release Condition  Validation Method  
+Functional 
+Completion  All core modules (authentication, AI 
+prediction, dashboard, alerts) are 
+implemented  User story and functional 
+testing  
+AI Model 
+Integration  CNN, ANN, RNN, and fusion pipeline 
+work end  to end Integration testing  
+Prediction 
+Performance  Model meets required accuracy and 
+produces stable outputs  Evaluation metrics (accuracy, 
+precision, recall, F1 -score)  
+Recommendation 
+System  Generates correct and relevant farming 
+advice  Scenario  based testing  
+UI Functionality  Dashboard displays predictions and 
+analytics correctly  UI testing  
+API Functionality  Backend APIs respond correctly 
+without failure  API testing  
+=== PAGE 47 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 40 Security  Authentication and access control work 
+correctly  Security testing  
+Performance  System responds within acceptable time 
+limits  Load/performance testing  
+Deployment  System is successfully deployed on 
+target environment  Deployment verification  
+ 
+5.4 Burndown Chart & Progress Tracking  
+The Green Guard project uses a sprint  based burndown chart to monitor overall project progress. 
+Progress is measured using effort points assigned to each sprint activity including research, design, 
+dataset preparation, development, testing, and deployment.  
+Work Tracking Method : 
+ 
+• Sprint  wise task tracking using Agile Scrum .  
+• Effort points assigned based on workload and complexity .  
+• Burndown chart updated after every sprint .  
+• Tracks completed vs remaining project effort .  
+ 
+Expected Burn Rate : 
+ 
+• Early sprints have moderate burn rate due to research and planning activities .  
+• Development and integration sprints consume higher effort points .  
+• A gradual downward trend indicates healthy project progress . 
+ 
+Process Tracking:  
+ 
+Sprint  Planned Points  Points Completed  Remaining Points  Velocity  Status  
+Sprint 1 8 8 140 8 Completed  
+Sprint 2 8 8 132 8 Completed  
+Sprint 3 10 10 122 10 Completed  
+Sprint 4 6 6 116 6 Completed  
+Sprint 5 8 8 108 8 Completed  
+Sprint 6 8 0 108  Active  
+Sprint 7 10 0 100  Upcoming  
+Sprint 8 8 0 92  Upcoming  
+=== PAGE 48 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 41 Sprint 9 8 0 84  Upcoming  
+Sprint 10 10 0 74  Upcoming  
+Sprint 1 1 8 0 66  Upcoming  
+Sprint 1 2 8 0 58  Upcoming  
+Sprint 1 3 6 0 52  Upcoming  
+Sprint 1 4 6 0 46  Upcoming  
+Sprint 1 5 5 0 41  Upcoming  
+Sprint 1 6 8 0 33  Upcoming  
+Sprint 1 7 8 0 25  Upcoming  
+Sprint 1 8 6 0 19  Upcoming  
+Sprint 1 9 5 0 14  Upcoming  
+Sprint 20 4 0 10  Upcoming  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Figure 13: Notion Burndown Chart of Green Guard  
+=== PAGE 49 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 42 5.5 Backlog Refinement Plan  
+ 
+Backlog refinement in Green Guard  is a sprint  based activity used to keep the product backlog 
+updated, prioritized, and aligned with ongoing development of the AI  based plant monitoring system.  
+ 
+Frequency : 
+ 
+• Conducted once per sprint (every 2 weeks) .  
+• Updated after each sprint review based on feedback .  
+• Minor updates can be made anytime in Notion .  
+ 
+Process : 
+ 
+• Reprioritize tasks  based on sprint progress and AI pipeline needs .  
+• Refine user stories  by adding missing details and acceptance criteria .  
+• Adjust story points  based on actual development effort .  
+• Split large tasks  into smaller sprint ready tasks .  
+• Update backlog  using sprint results, model performance, and supervisor feedback .  
+• Maintain tracking  using Notion and GitHub commits .  
+ 
+ 
+  
+=== PAGE 50 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 43 6. Risk Analysis  
+ 
+Risk analysis helps identify potential challenges that may affect the successful development and 
+performance of the Green  Guard system. The following technical, operational, and project related 
+risks were identified along with their possible impacts and mitigation strategies.  
+ 
+ 
+Risk ID  Risk Description  Impact  Mitigation Strategy  
+R-01 Limited availability 
+of fully synchronized 
+multimodal 
+agricultural datasets  May affect training 
+consistency and 
+prediction quality  Use multiple publicly 
+available datasets and 
+apply standardized 
+preprocessing 
+techniques  
+R-02 Poor quality or noisy 
+plant images  May reduce disease 
+detection accuracy  Apply image 
+preprocessing and 
+data augmentation 
+techniques  
+R-03 High computational 
+requirements during 
+model training  May increase training 
+time and resource 
+usage  Use lightweight 
+pretrained deep 
+learning models and 
+cloud -based GPU 
+resources  
+R-04 Difficulty in 
+integrating multiple 
+AI models (CNN, 
+ANN, RNN)  May delay system 
+integration and 
+testing  Develop and test each 
+module 
+independently before 
+final integration  
+R-05 Overfitting due to 
+limited dataset 
+diversity  May reduce real -
+world prediction 
+performance  Use regularization, 
+dropout, and 
+validation techniques  
+R-06 Backend or API 
+communication 
+failures  May interrupt 
+prediction and 
+dashboard services  Implement proper 
+API testing and error 
+handling mechanisms  
+R-07 Security and privacy 
+risks related to user 
+data May affect system 
+trust and data 
+protection  Use secure 
+authentication and 
+encryption techniques  
+R-08 Time management 
+and workload 
+challenges during 
+development  May affect timely 
+completion of project 
+tasks  Divide  
+responsibilities 
+among members of  
+=== PAGE 51 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 44 the team s and follow 
+a planned 
+development 
+schedule  
+ 
+ 
+ 
+ 
+ 
+  
+=== PAGE 52 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 45 7. References  
+[1] M. El Sakka, J. Mothe, and M. Ivanovici, "Images and CNN applications in smart agriculture," 
+European Journal of Remote Sensing , vol. 57, no. 1, 2024. [Online]. Available: 
+https://doi.org/10.1080/22797254.2024.2352386  
+ 
+[2] M. Venzke, D. Klisch, P. Kubik, A. Ali, J. D. Missier, and V. Turau, "Artificial Neural Networks for 
+Sensor Data Classification on Small Embedded Systems," ArXiv , vol. abs/2012.08403, 2020. 
+[Online]. Available: https://api.semanticscholar.org/CorpusID:229180871  
+ 
+[3] Z. Zuo, B. Shuai, G. Wang, X. Liu, X. Wang, B. Wang, and Y. Chen, “Convolutional recurrent 
+neural networks: Learning spatial dependencies for image representation,” in 2015 IEEE 
+Conference on Computer Vision and Pattern Recognition Workshops (CVPRW) , 2015, pp. 18 –26. 
+[Online]. Available: https://doi.org/10.1109/CVPRW.2015.7301268  
+ 
+[4] R. Paper, S. Site, S. K. Mishra, and L. Bhopal, "A Review of Ensemble Technique for Improving 
+Majority Voting for Classifier," in Proceedings , 2013. [Online]. Available: 
+https://api.semanticscholar.org/CorpusID:212523718  
+ 
+[5] S. M. M. Sreekanth and R. K. Megalingam, "Haptic Solutions for Agriculture," in 2018 International 
+Conference on Computing, Power and Communication Technologies (GUCON) , 2018, pp. 416 –420. 
+[Online]. Available: https://api.semanticscholar.org/CorpusID:90263486  
+ 
+[6] P. Bharman, S. Ahmad Saad, S. Khan, I. Jahan, M. Ray, and M. Biswas, “Deep Learning in 
+Agriculture: A Review,” Asian Journal of Research in Computer Science , vol. 13, no. 2, pp. 28 –47, 
+2022. [Online]. Available: https://doi.org/10.9734/ajrcos/2022/v13i230311  
+ 
+[7] Y.  Chen, Q.  Cheng, Y.  Cheng & H.  Yu, “Applications of Recurrent Neural Networks in 
+Environmental Factor Forecasting,” Neural Computation , vol. 30, no. 11, pp. 2855 –2881, 2018. 
+[Online]. Available: https://doi.org/10.1162/neco_a_01134  
+ 
+[8] S. Kashyap and A. Bharathy, “Feasibility of Integrated ANN Model for Agriculture Farming: A 
+Systematic Review Paper,” International Journal of Scientific Research in Engineering and 
+Management (IJSREM) , vol. 9, no. 8, 2025. [Online]. Available: 
+https://doi.org/10.55041/IJSREM51745  
+ 
+[9] B. Tugrul, E. Elfatimi, and R. Eryigit, “Convolutional Neural Networks in Detection of Plant Leaf 
+Diseases: A Review,” Agriculture , vol. 12, no. 8, 2022, Art. no. 1192. [Online]. Available: 
+https://doi.org/10.3390/agriculture12081192  
+ 
+[10] M. S. H. Talukder and A. K. Sarkar, “Nutrients deficiency diagnosis of rice crop by weighted 
+average ensemble learning,” Smart Agricultural Technology , vol. 4, 2023, Art. no. 100155. [Online]. 
+Available: https://doi.org/10.1016/j.atech.2022.100155  
+ 
+[11] V. Sivalingam, R. Elarabi, J. Bhargavi, M. Sahaya Sheela, R. Padmapriya, and A. N. Arularasan , 
+"A Novel Approach for Plant Leaf Disease Predictions Using Recurrent Neural Network RNN 
+Classification Method," Journal of Advanced Research in Applied Sciences and Engineering 
+Technology , vol. 31, no. 2, pp. 327 –338, 2023. [Online]. Available: 
+https://doi.org/10.37934/araset.31.2.327338  
+ 
+[12] H. Ahmed, M. A. Hossain, I. Hossain, S. S. Akhi, and I. J. Lima, “Detection and classification of 
+plant diseases in leaves through machine learning,” Indonesian Journal of Electrical Engineering 
+and Computer Science , vol. 33, no. 3, pp. 1942 –1949, 2024. [Online]. Available: 
+https://doi.org/10.11591/ijeecs.v33.i3.pp1942 -1949 . 
+ 
+[13] S. H. Lee, C. S. Chan, P. Wilkin, and P. Remagnino, “Deep -plant: Plant identification with 
+convolutional neural networks,” in 2015 IEEE International Conference on Image Processing (ICIP) , 
+=== PAGE 53 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 46 Quebec City, QC, Canada, 2015, pp. 452 –456. [Online]. Available: 
+https://doi.org/10.1109/ICIP.2015.7350839  
+ 
+[14] R. Kumar, A. Kumar, K. Bhatia, K. S. Nisar, S. S. Chouhan, P. Maratha, and A. K. Tiwari, "Hybrid 
+Approach of Cotton Disease Detection for Enhanced Crop Health and Yield," IEEE Access , vol. 12, 
+pp. 132495 –132507, 2024. [Online]. Available: 
+https://api.semanticscholar.org/CorpusID:271072079  
+ 
+[15] S. Firame, A. Dhamale, A. Yerme, K. Kote and S. Shinde, “A Survey Paper On: Uplifting Farmers 
+with Mobile Applications: An Overview of Modern Agricultural Utilities,” Int. J. Innov. Sci. Res. 
+Technol. , vol. 9, no. 3, Mar. 2024. [Online]. Available: 
+https://doi.org/10.38124/ijisrt/IJISRT24MAR505  
+ 
+ 
+  
+=== PAGE 54 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 47 Appendix A: Glossary  
+ 
+Term / Acronym  Abbreviation  Definition  
+A   
+Artificial Intelligence  AI Computer systems performing 
+tasks requiring human -like 
+intelligence.  
+Artificial Neural Network  ANN  Computational model inspired 
+by biological neural networks.  
+Authentication   Verifying a user’s identity 
+before system access.  
+Authorization   Granting system access based 
+on user roles and privileges.  
+C   
+Cloud Deployment   Hosting system components 
+on cloud infrastructure for 
+scalability.  
+Convolutional Neural Network   
+CNN  Deep learning model for image 
+analysis, e.g., plant disease 
+detection.  
+D   
+Dashboard   Graphical interface showing 
+plant health, sensor readings, 
+and alerts.  
+Dataset   Structured collection of images 
+and sensor data for model 
+training.  
+Deep Learning   
+DL Multi -layer neural networks for 
+modelling complex patterns in 
+data.  
+Decision -Support System   System providing insights to 
+assist user decision making.  
+E   
+Ensemble Learning   Combining multiple models to 
+improve prediction accuracy.  
+G   
+Green Guard   Web based intelligent system 
+for plant health monitoring and 
+alerts.  
+I   
+ 
+Inference    
+Generating predictions from a 
+trained machine learning 
+model.  
+Internet of Things   
+IOT Network of sensors and 
+devices transmitting real -time 
+environmental data.  
+M   
+Machine Learning   
+ML Systems learning patterns 
+from data without explicit 
+programming.  
+Multi -Stress Analysis   Detecting diseases, 
+deficiencies, and stress 
+simultaneously in plants.  
+R   
+=== PAGE 55 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 48 Recurrent Neural Network  RNN  
+ Neural network for sequential 
+or time -series data processing.  
+S   
+Sensor Data   Environmental measurements 
+collected from IoT sensors.  
+ 
+SoftwareRequirements 
+Specification   
+SRS Document defining functional 
+and non -functional 
+requirements.  
+U   
+User Role   Defined access level assigned 
+to a system user.  
+User Interface/User 
+Experience  UI/UX  Design principles for user 
+interface and user experience.  
+ 
+=== PAGE 56 ===
+Green Guard  
+ 
+S26CS060  FYP  Phase I (RS)  Page 49 Appendix B: IV & V Report  
+(Independent verification & validation)  
+IV & V Resource  
+ 
+ 
+Name           Signature  
+ 
+ 
+ 
+S# Defect Description  Origin Stage  Status  Fix Time  
+Hours  Minutes  
+1      
+2      
+3      
+…      
+Table 1: List of non -trivial defects  
+ 
+ 
+ 
