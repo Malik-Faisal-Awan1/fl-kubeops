@@ -1,0 +1,13 @@
+# FL-KubeOps Operator Default Configuration
+operator:
+  name: fl-kubeops-operator
+  namespace: fl-system
+
+fl_cluster:
+  default_rounds: 10
+  min_client_quorum: 0.6   # 60% of clients must complete before aggregation
+  round_timeout_seconds: 600
+  aggregation_strategy: fedavg  # options: fedavg, fedprox
+
+logging:
+  level: INFO
