@@ -1,0 +1,25 @@
+name: docs-sync
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: docs-sync-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  docs-sync:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Show Python version
+        run: python3 --version
+      - name: Docs are in sync and repo rules hold
+        run: python3 tools/docs.py --check
+      - name: Unit tests for tools
+        run: python3 -m unittest discover -s tools -p "test_*.py" -v

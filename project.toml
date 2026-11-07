@@ -1,0 +1,376 @@
+# SINGLE SOURCE OF TRUTH for project facts.
+# Edit THIS file, then run `make docs`. Never hand-edit text between
+# "<!-- BEGIN GENERATED:... -->" and "<!-- END GENERATED:... -->" markers.
+# Read by tools/docs.py (Python 3.11+ standard library only).
+
+[project]
+name = "FL-KubeOps"
+sprint = "Sprint 1 (Foundation)"
+sprint_status = "IN PROGRESS"
+sprint_dates = "2026-11-09 to 2026-11-20 (assumed)"
+objective = "A new contributor can clone this repo, bring up a pinned K3s cluster (1 server + 4 hospital agent nodes), build and run the FL client container on it, and every PR is gated by automated lint, test, image-build and security checks. No federated-learning logic yet."
+capacity = "4 people x 10 h/week = 80 h per sprint (assumed, not confirmed); about 62 h planned"
+out_of_scope = [
+  "FLCluster CRD and kopf handlers",
+  "training loop and datasets",
+  "gRPC/protobuf",
+  "any SMPC code",
+  "Kubeflow/MLflow install",
+  "JWT/RBAC",
+  "TLS 1.3",
+  "Prometheus",
+  "Sphinx",
+  "any registry or hosted deployment",
+]
+
+# ---- Top-level folders. Any top-level folder not listed here fails the docs check. ----
+[[path]]
+path = "operator"
+purpose = "kopf operator (`src/`, `tests/`, `config/default.yaml`)"
+[[path]]
+path = "clients"
+purpose = "FL client and its Dockerfile"
+[[path]]
+path = "pipeline"
+purpose = "Kubeflow Pipelines and MLflow code (empty until Sprint 8)"
+[[path]]
+path = "deploy"
+purpose = "cluster scripts and Kubernetes manifests (`deploy/k3s/`)"
+[[path]]
+path = "docs"
+purpose = "SRS, figures, sprint plan, ADRs"
+[[path]]
+path = "tools"
+purpose = "repository tooling (`tools/docs.py` keeps these docs in sync)"
+
+# ---- Repository state, computed from the filesystem on every run. ----
+# kind = "code" counts toward "application code exists".
+[[state]]
+label = "Operator Python code"
+glob = "operator/src/**/*.py"
+kind = "code"
+[[state]]
+label = "Client Python code"
+glob = "clients/src/**/*.py"
+kind = "code"
+[[state]]
+label = "Pipeline Python code"
+glob = "pipeline/**/*.py"
+kind = "code"
+[[state]]
+label = "Unit tests (application)"
+glob = "*/tests/**/test_*.py"
+[[state]]
+label = "Client Dockerfile"
+glob = "clients/Dockerfile"
+[[state]]
+label = "Per-component pyproject.toml"
+glob = "*/pyproject.toml"
+[[state]]
+label = "Hashed lockfiles"
+glob = "*/requirements.lock"
+[[state]]
+label = "Ruff config"
+glob = "ruff.toml"
+[[state]]
+label = "CI workflow (ci.yml)"
+glob = ".github/workflows/ci.yml"
+[[state]]
+label = "Docs-sync workflow"
+glob = ".github/workflows/docs-sync.yml"
+[[state]]
+label = "Cluster scripts"
+glob = "deploy/k3s/**/*.sh"
+[[state]]
+label = "Kubernetes manifests"
+glob = "deploy/k3s/**/*.yaml"
+[[state]]
+label = "ADRs"
+glob = "docs/adr/*.md"
+[[state]]
+label = "Compatibility matrix"
+glob = "docs/compatibility-matrix.md"
+[[state]]
+label = "Dev setup guide"
+glob = "docs/dev-setup.md"
+
+# ---- Commands. Listed in docs ONLY if the Makefile defines the target. ----
+[[command]]
+cmd = "make docs"
+target = "docs"
+purpose = "regenerate README/AGENTS/sprint docs from project.toml and the repo"
+[[command]]
+cmd = "make docs-check"
+target = "docs-check"
+purpose = "fail if docs are out of date or a repo rule is broken (same check CI runs)"
+[[command]]
+cmd = "make test-tools"
+target = "test-tools"
+purpose = "run the unit tests of tools/docs.py"
+[[command]]
+cmd = "make hooks"
+target = "hooks"
+purpose = "enable the pre-commit hook that runs `make docs` automatically (run once per clone)"
+[[command]]
+cmd = "make lint"
+target = "lint"
+purpose = "ruff check and format check"
+[[command]]
+cmd = "make test"
+target = "test"
+purpose = "run unit tests with coverage"
+[[command]]
+cmd = "make cluster-up"
+target = "cluster-up"
+purpose = "create the k3d cluster (1 server + 4 agents)"
+[[command]]
+cmd = "make cluster-down"
+target = "cluster-down"
+purpose = "delete the k3d cluster"
+[[command]]
+cmd = "make image"
+target = "image"
+purpose = "build the client image locally"
+
+# ---- Binding decisions. `pins` are enforced against pyproject/requirements files. ----
+[[decision]]
+topic = "Python"
+value = "3.12"
+short = "Python 3.12"
+[[decision]]
+topic = "Kubernetes"
+value = "K3s `v1.36.6+k3s1`: one server + four agent nodes"
+short = "K3s v1.36.6+k3s1"
+[[decision]]
+topic = "Dev cluster"
+value = "k3d `v5.9.0` running image `rancher/k3s:v1.36.6-k3s1` (image tag NOT yet verified on Docker Hub: check before use)"
+short = "k3d v5.9.0"
+[[decision]]
+topic = "Hospital node"
+value = "one K3s agent node (label `fl-kubeops.io/hospital=h1..h4`), not a pod"
+[[decision]]
+topic = "Namespace"
+value = "`fl-system`"
+[[decision]]
+topic = "CRD"
+value = "kind `FLCluster`, group `fl.kubeops.io`, CRD name `flclusters.fl.kubeops.io`"
+[[decision]]
+topic = "PyTorch"
+value = "`torch==2.15.0`, CPU build only (CPU wheel index NOT yet verified reachable)"
+short = "torch 2.15.0 (CPU)"
+pins = ["torch==2.15.0"]
+[[decision]]
+topic = "Operator framework"
+value = "`kopf==1.45.2`"
+short = "kopf 1.45.2"
+pins = ["kopf==1.45.2"]
+[[decision]]
+topic = "Lint + format"
+value = "`ruff==0.17.4` (exact pin). Do not install flake8 or black"
+short = "ruff 0.17.4"
+pins = ["ruff==0.17.4"]
+[[decision]]
+topic = "Tests"
+value = "`pytest==9.2.0`, `pytest-cov==7.1.0`"
+short = "pytest 9.2.0"
+pins = ["pytest==9.2.0", "pytest-cov==7.1.0"]
+[[decision]]
+topic = "Dependency locking"
+value = "`uv==0.13.7` with hashes (`uv pip compile --generate-hashes`), one lockfile per component"
+short = "uv 0.13.7"
+pins = ["uv==0.13.7"]
+[[decision]]
+topic = "Builds"
+value = "local only. No image registry, no publishing, no GHCR"
+[[decision]]
+topic = "Board"
+value = "Notion (not GitHub Projects)"
+
+# ---- Packages that must NOT appear in any dependency file yet. Remove an entry when its sprint arrives. ----
+[[blocked]]
+name = "syft"
+until = "never"
+why = "current PySyft has no SMPC (0.10 is a file-sync tool; 0.9.5 has no secret-sharing code)"
+[[blocked]]
+name = "grpcio"
+until = "Sprint 4"
+why = "gRPC layer is Sprint 4"
+[[blocked]]
+name = "grpcio-tools"
+until = "Sprint 4"
+why = "gRPC layer is Sprint 4"
+[[blocked]]
+name = "protobuf"
+until = "Sprint 4"
+why = "gRPC layer is Sprint 4"
+[[blocked]]
+name = "kfp"
+until = "Sprint 8"
+why = "Kubeflow Pipelines is Sprint 8"
+[[blocked]]
+name = "mlflow"
+until = "Sprint 9"
+why = "MLflow tracking is Sprint 9"
+
+# ---- People. ----
+[[person]]
+name = "Faisal Khalid"
+role = "KubeOps lead, Scrum Master"
+stories = "US-03 (client image), PB-26 (K3s bootstrap)"
+[[person]]
+name = "M. Hammad"
+role = "Backend integration"
+stories = "US-23 (environment manifests)"
+[[person]]
+name = "Wajeeh ur Rehman"
+role = "Pipeline/MLOps"
+stories = "US-24 (CI)"
+[[person]]
+name = "Shah Wali"
+role = "FL security"
+stories = "SMPC-library spike (ADR 0003)"
+
+[[open_item]]
+text = "SMPC library (ADR 0003 pending)."
+[[open_item]]
+text = "Whether the repo owner may bypass branch rulesets (assume **no** until told)."
+[[open_item]]
+text = "VM operating system and access details (unknown). Do not write VM-specific commands."
+[[open_item]]
+text = "Final submission date (the team manages it; do not plan around it)."
+[[open_item]]
+text = "Exact Sprint capacity (assumed, not confirmed)."
+
+[[unverified]]
+text = "`rancher/k3s:v1.36.6-k3s1` tag exists on Docker Hub."
+[[unverified]]
+text = "PyTorch CPU wheel index serves `torch==2.15.0`."
+[[unverified]]
+text = "Python base-image digest (record when pinning)."
+[[unverified]]
+text = "The docs-sync workflow has not yet run on a GitHub runner (python3 >= 3.11 assumed on `ubuntu-24.04`)."
+
+# ---- Sprint scope. ----
+[[scope]]
+id = "US-03"
+item = "Containerised FL client (PyTorch CPU)"
+owner = "Faisal Khalid"
+points = "3"
+[[scope]]
+id = "US-23"
+item = "Reproducible environment manifests (exact pins, hashed lockfiles)"
+owner = "M. Hammad"
+points = "2 (proposed; SRS has no estimate)"
+[[scope]]
+id = "PB-26"
+item = "K3s dev-cluster bootstrap + manifests + dev guide (new item, not in SRS)"
+owner = "Faisal Khalid"
+points = "3 (proposed)"
+[[scope]]
+id = "E1"
+item = "CI baseline + branch rules (pulled forward from US-24)"
+owner = "Wajeeh ur Rehman"
+points = "enabler"
+[[scope]]
+id = "E2"
+item = "SMPC-library spike -> docs/adr/0003-smpc-library.md"
+owner = "Shah Wali"
+points = "enabler, 1 day timebox"
+
+# ---- Tasks, in order. `done = true` REQUIRES every `evidence` glob to match a file, else the check fails. ----
+[[task]]
+title = "Create monorepo with history from the four org repos (org repos left untouched)"
+owner = "Faisal Khalid"
+done = true
+evidence = ["operator/README.md", "clients/README.md", "pipeline/README.md", "docs/README.md"]
+[[task]]
+title = "Docs-sync automation: project.toml, tools/docs.py, hook, CI check"
+owner = "Faisal Khalid"
+done = true
+evidence = ["project.toml", "tools/docs.py", ".githooks/pre-commit", ".github/workflows/docs-sync.yml", "Makefile"]
+[[task]]
+title = "Planning: create Notion cards for US-03, US-23, PB-26, E1, E2; reset the burndown to the real state"
+owner = "Faisal Khalid"
+done = false
+[[task]]
+title = "Repo settings by the owner in GitHub UI: secret scanning, push protection, Dependabot, Actions default permissions = read"
+owner = "Repo owner"
+done = false
+[[task]]
+title = "`ruff.toml`, per-component `pyproject.toml` + hashed lockfile (US-23)"
+owner = "M. Hammad"
+done = false
+evidence = ["ruff.toml", "clients/pyproject.toml", "operator/pyproject.toml", "clients/requirements.lock", "operator/requirements.lock"]
+[[task]]
+title = "Prepare the VM: install pinned tools (details unknown: ask before writing VM commands)"
+owner = "Faisal Khalid"
+done = false
+[[task]]
+title = "`make cluster-up` / `make cluster-down`: 1 server + 4 agents, node labels, kubeconfig mode 0600"
+owner = "Faisal Khalid"
+done = false
+[[task]]
+title = "`clients/src/fl_client/` package with a `selfcheck` command + unit tests"
+owner = "M. Hammad"
+done = false
+evidence = ["clients/src/fl_client/__main__.py", "clients/tests/**/test_*.py"]
+[[task]]
+title = "`clients/Dockerfile` + `.dockerignore` (non-root, no data, no secrets; hadolint clean)"
+owner = "Faisal Khalid"
+done = false
+evidence = ["clients/Dockerfile", "clients/.dockerignore"]
+[[task]]
+title = "Manifests in `deploy/k3s/`: namespace `fl-system` (Pod Security `restricted`), ConfigMap, four per-node Jobs, smoke script"
+owner = "Faisal Khalid"
+done = false
+evidence = ["deploy/k3s/**/*.yaml"]
+[[task]]
+title = "`.github/workflows/ci.yml`: lint, test, audit, docker build + scan + selfcheck, k3d smoke; actions pinned by SHA; Dependabot config"
+owner = "Wajeeh ur Rehman"
+done = false
+evidence = [".github/workflows/ci.yml", ".github/dependabot.yml"]
+[[task]]
+title = "Branch ruleset on `main` (owner, GitHub UI), CODEOWNERS, CONTRIBUTING"
+owner = "Wajeeh ur Rehman"
+done = false
+[[task]]
+title = "ADR 0003 (SMPC library) + advisor acknowledgement"
+owner = "Shah Wali"
+done = false
+evidence = ["docs/adr/0003-smpc-library.md"]
+[[task]]
+title = "`docs/compatibility-matrix.md`, ADR 0001 (Python 3.12), ADR 0002 (K3s `v1.36.6+k3s1`), `docs/dev-setup.md`, list of SRS amendments"
+owner = "M. Hammad"
+done = false
+evidence = ["docs/compatibility-matrix.md", "docs/adr/0001-*.md", "docs/adr/0002-*.md", "docs/dev-setup.md"]
+[[task]]
+title = "A non-author follows `docs/dev-setup.md` on a clean VM state"
+owner = "Shah Wali"
+done = false
+[[task]]
+title = "Review/demo, tag `sprint-01`, retro"
+owner = "All"
+done = false
+
+# ---- Acceptance criteria. ----
+[[ac]]
+id = "AC1"
+text = "From a clean state, documented commands create the cluster; `kubectl get nodes` shows 5 `Ready` nodes on `v1.36.6+k3s1`; done by someone who did not write the guide."
+[[ac]]
+id = "AC2"
+text = "CI builds the client image; it runs as non-root; `python -c \"import torch; print(torch.__version__)\"` prints `2.15.0+cpu`; the image contains no dataset or secret."
+[[ac]]
+id = "AC3"
+text = "Four Jobs (one per hospital node) reach `Complete`; `kubectl get pods -o wide -n fl-system` shows four different nodes; each logs `selfcheck: ok`."
+[[ac]]
+id = "AC4"
+text = "A deliberately failing PR (lint, test, Dockerfile lint, secret) is blocked from merging."
+[[ac]]
+id = "AC5"
+text = "Two clean installs from the lockfile give identical `pip freeze`."
+[[ac]]
+id = "AC6"
+text = "Unit coverage >= 80% on new code (adjust after first measurement); no fixable CRITICAL vulnerability in the image, or a reviewed ignore list."
+[[ac]]
+id = "AC7"
+text = "ADR 0003 merged with a recommendation and advisor acknowledgement."
