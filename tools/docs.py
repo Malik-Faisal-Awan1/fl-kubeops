@@ -120,6 +120,7 @@ def render(cfg: dict, root: Path) -> dict[str, str]:
     blocks["header"] = (
         f"**Status:** {proj['sprint_status']} · **Dates:** {proj['sprint_dates']}\n\n"
         f"**Objective:** {proj['objective']}\n\n**Capacity:** {proj['capacity']}."
+        + (f"\n\n**SRS planned points:** {proj['srs_points']}." if proj.get("srs_points") else "")
     )
     blocks["scope"] = table(
         ["ID", "Item", "Owner", "Points"],

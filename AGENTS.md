@@ -74,6 +74,7 @@ Each of `operator/`, `clients/`, `pipeline/` gets its **own** `pyproject.toml` a
 | Lint + format | `ruff==0.17.4` (exact pin). Do not install flake8 or black |
 | Tests | `pytest==9.2.0`, `pytest-cov==7.1.0` |
 | Dependency locking | `uv==0.13.7` with hashes (`uv pip compile --generate-hashes`), one lockfile per component |
+| SMPC requirement (SRS) | Shamir threshold secret sharing, t = 3 of n = 4; the aggregation server cannot recover any individual client update unless a threshold of shares is combined; assumes participants do not collude. Library undecided (ADR 0003) |
 | Builds | local only. No image registry, no publishing, no GHCR |
 | Board | Notion (not GitHub Projects) |
 <!-- END GENERATED:decisions -->
@@ -93,7 +94,7 @@ Exact pins listed above are checked automatically against every `pyproject.toml`
 | `mlflow` | Sprint 9 | MLflow tracking is Sprint 9 |
 <!-- END GENERATED:blocked -->
 
-**SMPC / PySyft:** the SMPC library is undecided. The decision is recorded in `docs/adr/0003-smpc-library.md`. Write no SMPC code until that ADR exists, is merged and is approved by the advisor.
+**SMPC / PySyft:** the SRS requires Shamir threshold secret sharing with t = 3 of n = 4 (non-colluding participants). PySyft cannot provide it. The SMPC library is undecided. The decision is recorded in `docs/adr/0003-smpc-library.md`. Write no SMPC code until that ADR exists, is merged and is approved by the advisor.
 
 ## 5. DO
 1. Work on one user story per branch: `feature/US-<ID>-<short-description>` (bug fix: `fix/US-<ID>-<short-description>`). Branch from `main`.
@@ -137,16 +138,18 @@ Exact pins listed above are checked automatically against every `pyproject.toml`
 | Shah Wali | FL security | SMPC-library spike (ADR 0003) |
 <!-- END GENERATED:team -->
 
-Advisor / Product Owner: Prof. Dr. Saira Andleeb Gilani. A reviewer must be someone other than the PR author.
+Advisor / Product Owner: Prof. Dr. Saira Andleeb Gillani. A reviewer must be someone other than the PR author.
 
 ## 8. Definition of Done
 Merged by PR with a non-author review · all CI checks green (including `docs-sync`) · unit tests included · acceptance check result and date in the PR · docs regenerated · no secrets or data in git · versions pinned exactly.
 
 ## 9. Open items — do NOT assume an answer
 <!-- BEGIN GENERATED:open -->
-- SMPC library (ADR 0003 pending).
+- SMPC library (ADR 0003 pending). It must support Shamir threshold sharing with t = 3 of n = 4.
 - Whether the repo owner may bypass branch rulesets (assume **no** until told).
 - VM operating system and access details (unknown). Do not write VM-specific commands.
+- SRS prose writes `FL Cluster` (with a space) and `FLClusters.fl.kubeops.io` in RG-01. Kubernetes resource names must be lowercase and contain no space. Our name stays `FLCluster` / `flclusters.fl.kubeops.io`. Do not copy the SRS spelling into code.
+- SRS still says Sprints 1-5 are Completed and that a CI scaffold already exists (US-24). The repo has neither. Treat the repo as the truth.
 - Final submission date (the team manages it; do not plan around it).
 - Exact Sprint capacity (assumed, not confirmed).
 <!-- END GENERATED:open -->

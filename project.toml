@@ -10,6 +10,7 @@ sprint_status = "IN PROGRESS"
 sprint_dates = "2026-11-09 to 2026-11-20 (assumed)"
 objective = "A new contributor can clone this repo, bring up a pinned K3s cluster (1 server + 4 hospital agent nodes), build and run the FL client container on it, and every PR is gated by automated lint, test, image-build and security checks. No federated-learning logic yet."
 capacity = "4 people x 10 h/week = 80 h per sprint (assumed, not confirmed); about 62 h planned"
+srs_points = "5 (US-03 = 3 + US-23 = 2, per SRS sections 2.4, 2.5 and 5.5). PB-26 and E1/E2 below are team additions beyond the SRS"
 out_of_scope = [
   "FLCluster CRD and kopf handlers",
   "training loop and datasets",
@@ -180,6 +181,9 @@ value = "`uv==0.13.7` with hashes (`uv pip compile --generate-hashes`), one lock
 short = "uv 0.13.7"
 pins = ["uv==0.13.7"]
 [[decision]]
+topic = "SMPC requirement (SRS)"
+value = "Shamir threshold secret sharing, t = 3 of n = 4; the aggregation server cannot recover any individual client update unless a threshold of shares is combined; assumes participants do not collude. Library undecided (ADR 0003)"
+[[decision]]
 topic = "Builds"
 value = "local only. No image registry, no publishing, no GHCR"
 [[decision]]
@@ -231,11 +235,15 @@ role = "FL security"
 stories = "SMPC-library spike (ADR 0003)"
 
 [[open_item]]
-text = "SMPC library (ADR 0003 pending)."
+text = "SMPC library (ADR 0003 pending). It must support Shamir threshold sharing with t = 3 of n = 4."
 [[open_item]]
 text = "Whether the repo owner may bypass branch rulesets (assume **no** until told)."
 [[open_item]]
 text = "VM operating system and access details (unknown). Do not write VM-specific commands."
+[[open_item]]
+text = "SRS prose writes `FL Cluster` (with a space) and `FLClusters.fl.kubeops.io` in RG-01. Kubernetes resource names must be lowercase and contain no space. Our name stays `FLCluster` / `flclusters.fl.kubeops.io`. Do not copy the SRS spelling into code."
+[[open_item]]
+text = "SRS still says Sprints 1-5 are Completed and that a CI scaffold already exists (US-24). The repo has neither. Treat the repo as the truth."
 [[open_item]]
 text = "Final submission date (the team manages it; do not plan around it)."
 [[open_item]]
@@ -260,12 +268,12 @@ points = "3"
 id = "US-23"
 item = "Reproducible environment manifests (exact pins, hashed lockfiles)"
 owner = "M. Hammad"
-points = "2 (proposed; SRS has no estimate)"
+points = "2 (SRS 2.4)"
 [[scope]]
 id = "PB-26"
 item = "K3s dev-cluster bootstrap + manifests + dev guide (new item, not in SRS)"
 owner = "Faisal Khalid"
-points = "3 (proposed)"
+points = "3 (proposed, not in SRS)"
 [[scope]]
 id = "E1"
 item = "CI baseline + branch rules (pulled forward from US-24)"

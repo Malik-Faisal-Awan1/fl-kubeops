@@ -4,7 +4,7 @@ Privacy-preserving federated learning, orchestrated with Kubernetes.
 Train across simulated hospital nodes while raw data never leaves the node.
 
 University of Central Punjab · BSCS Final Year Project · Group F26CS023
-Advisor / Product Owner: Prof. Dr. Saira Andleeb Gilani
+Advisor / Product Owner: Prof. Dr. Saira Andleeb Gillani
 
 ## Status
 <!-- BEGIN GENERATED:status -->

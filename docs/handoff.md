@@ -26,7 +26,16 @@ Docker Hub tag `rancher/k3s:v1.36.6-k3s1`; PyTorch CPU index serving `torch==2.1
 ## Open and needs a human
 - Advisor approval: SMPC library other than PySyft; SRS amendments (flake8 -> ruff, PySyft -> TBD, repo layout).
 - The compressed 10-sprint timeline in `docs/planning/FL-KubeOps_Sprint1_Plan_Rev2.md` section 2 was proposed, **not approved**. The team said it will manage the deadline itself.
-- SRS inconsistencies to fix: Sprint 1 planned 8 points but US-03 = 3 and US-23 has no estimate; story points sum to 106 vs 148 total; READMEs of the old repos mention IoT anomaly detection and FastAPI; `operator/config/default.yaml` has `min_client_quorum: 0.6` but NFR-R03 requires 0.75 (3 of 4).
+- Still inconsistent after the 2026-11-08 SRS update: the SRS says Sprints 1-5 are Completed and that a CI scaffold exists (US-24); the repo has neither. The SRS still names `flake8` and PySyft. READMEs of the old repos mention IoT anomaly detection and FastAPI. `operator/config/default.yaml` has `min_client_quorum: 0.6` but NFR-R03 requires 0.75 (3 of 4).
+
+## SRS update of 2026-11-08 (compared with the version used on 2026-11-07)
+Authoritative copy: `docs/Phase 1 SRS docs/FYP Phase 1 SRS-Updated-Draft.docx` (replaced with the new file). A plain-text conversion for AI readers is `docs/srs-text.md` (converted with `pandoc`; if the two differ, the .docx wins).
+- **Sprint 1 is 5 points:** US-03 = 3 + US-23 = 2. US-21 = 3, US-22 = 5, US-23 = 2, US-24 = 3 now have estimates. Total is 119 points; the old 106 vs 148 mismatch is gone. Sprints 15, 16, 18, 19, 20 carry 0 points.
+- **SMPC now says Shamir threshold t = 3 of n = 4**, secure if participants do not collude (was: "mathematically irretrievable"). Still names PySyft, which cannot do it. The retro action "pin PySyft and Python versions in the Docker images" (Sprint 6, R-01) conflicts with our finding.
+- New risk R-11: recovery within 60 s must be shown with at least 10 recovery trials (Sprint 5/6 work, not Sprint 1).
+- Advisor's surname is spelled "Gillani" in the new SRS.
+- Wording only: "FLCluster" became "FL Cluster" in prose; RG-01 says `FLClusters.fl.kubeops.io` (invalid Kubernetes name; ours stays lowercase `flclusters.fl.kubeops.io`).
+- Retrospective in Appendix B is now dated 31/Oct/2026, facilitator Faisal Khalid.
 
 ## Claude Code setup (per person, once)
 1. `git clone` the repo, `cd` into it, run `make hooks`.
