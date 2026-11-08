@@ -157,3 +157,22 @@ Merged by PR with a non-author review · all CI checks green (including `docs-sy
 3. What you did **not** run or could not verify.
 4. Open questions.
 Never write "complete" or "working" for anything you did not run.
+
+
+## 11. Workflow for an agent starting a task
+1. Read this file and `docs/sprint-1.md`. Run `make docs-check`; if it fails, stop and report.
+2. Pick the first unticked task in `docs/sprint-1.md` whose earlier tasks are done, or the one the human names. Do not start tasks that need a VM or a GitHub-UI action (see the owner in the task line); tell the human instead.
+3. Make a plan first. List the exact files you will create or change. If any file, command or version in the plan is not in this repo or `project.toml`, look it up or ask. Do not guess.
+4. Create the branch `feature/US-<ID>-<short-description>` from `main`.
+5. Implement the task and its tests together. Run the checks that exist (section 2 lists real commands). Keep the real output.
+6. If a fact changed (version, path, command, task status), edit `project.toml` and run `make docs`. Never edit text between GENERATED markers.
+7. Ask the `reviewer` subagent (`.claude/agents/reviewer.md`) to review the diff. Fix every blocker and major finding.
+8. Open a pull request using the template. A human merges it; never merge your own PR.
+9. After merge, set the task `done = true` in `project.toml` in a small follow-up PR (the docs check requires the evidence files to exist).
+
+
+## 12. Tools (MCP servers) — only if connected
+`.mcp.json` declares `notion` and `github` servers. Check with `/mcp` that they are connected before using them. If they are not connected, say so; do not pretend you used them.
+- **Notion** is the sprint board. Read the card for the story. You may change only its Status and add a link to the PR. Do not create, delete or restructure pages or databases.
+- **GitHub** is for branches, pull requests and reading checks. Never use it to merge, to change repository settings or rulesets, or to touch repositories other than this one.
+- Notion and `project.toml` can disagree. For code, rules and versions `project.toml` and this file win. For who-does-what and card status, Notion wins. Report any disagreement to the human.
