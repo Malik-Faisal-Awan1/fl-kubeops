@@ -74,6 +74,7 @@ Each of `operator/`, `clients/`, `pipeline/` gets its **own** `pyproject.toml` a
 | Lint + format | `ruff==0.17.4` (exact pin). Do not install flake8 or black |
 | Tests | `pytest==9.2.0`, `pytest-cov==7.1.0` |
 | Dependency locking | `uv==0.13.7` with hashes (`uv pip compile --generate-hashes`), one lockfile per component |
+| SMPC requirement (SRS) | Shamir threshold secret sharing, t = 3 of n = 4; the aggregation server cannot recover any individual client update unless a threshold of shares is combined; assumes participants do not collude. Library undecided (ADR 0003) |
 | Builds | local only. No image registry, no publishing, no GHCR |
 | Board | Notion (not GitHub Projects) |
 <!-- END GENERATED:decisions -->
@@ -93,7 +94,7 @@ Exact pins listed above are checked automatically against every `pyproject.toml`
 | `mlflow` | Sprint 9 | MLflow tracking is Sprint 9 |
 <!-- END GENERATED:blocked -->
 
-**SMPC / PySyft:** the SMPC library is undecided. The decision is recorded in `docs/adr/0003-smpc-library.md`. Write no SMPC code until that ADR exists, is merged and is approved by the advisor.
+**SMPC / PySyft:** the SRS requires Shamir threshold secret sharing with t = 3 of n = 4 (non-colluding participants). PySyft cannot provide it. The SMPC library is undecided. The decision is recorded in `docs/adr/0003-smpc-library.md`. Write no SMPC code until that ADR exists, is merged and is approved by the advisor.
 
 ## 5. DO
 1. Work on one user story per branch: `feature/US-<ID>-<short-description>` (bug fix: `fix/US-<ID>-<short-description>`). Branch from `main`.
@@ -137,16 +138,18 @@ Exact pins listed above are checked automatically against every `pyproject.toml`
 | Shah Wali | FL security | SMPC-library spike (ADR 0003) |
 <!-- END GENERATED:team -->
 
-Advisor / Product Owner: Prof. Dr. Saira Andleeb Gilani. A reviewer must be someone other than the PR author.
+Advisor / Product Owner: Prof. Dr. Saira Andleeb Gillani. A reviewer must be someone other than the PR author.
 
 ## 8. Definition of Done
 Merged by PR with a non-author review · all CI checks green (including `docs-sync`) · unit tests included · acceptance check result and date in the PR · docs regenerated · no secrets or data in git · versions pinned exactly.
 
 ## 9. Open items — do NOT assume an answer
 <!-- BEGIN GENERATED:open -->
-- SMPC library (ADR 0003 pending).
+- SMPC library (ADR 0003 pending). It must support Shamir threshold sharing with t = 3 of n = 4.
 - Whether the repo owner may bypass branch rulesets (assume **no** until told).
 - VM operating system and access details (unknown). Do not write VM-specific commands.
+- SRS prose writes `FL Cluster` (with a space) and `FLClusters.fl.kubeops.io` in RG-01. Kubernetes resource names must be lowercase and contain no space. Our name stays `FLCluster` / `flclusters.fl.kubeops.io`. Do not copy the SRS spelling into code.
+- SRS still says Sprints 1-5 are Completed and that a CI scaffold already exists (US-24). The repo has neither. Treat the repo as the truth.
 - Final submission date (the team manages it; do not plan around it).
 - Exact Sprint capacity (assumed, not confirmed).
 <!-- END GENERATED:open -->
@@ -157,3 +160,22 @@ Merged by PR with a non-author review · all CI checks green (including `docs-sy
 3. What you did **not** run or could not verify.
 4. Open questions.
 Never write "complete" or "working" for anything you did not run.
+
+
+## 11. Workflow for an agent starting a task
+1. Read this file and `docs/sprint-1.md`. Run `make docs-check`; if it fails, stop and report.
+2. Pick the first unticked task in `docs/sprint-1.md` whose earlier tasks are done, or the one the human names. Do not start tasks that need a VM or a GitHub-UI action (see the owner in the task line); tell the human instead.
+3. Make a plan first. List the exact files you will create or change. If any file, command or version in the plan is not in this repo or `project.toml`, look it up or ask. Do not guess.
+4. Create the branch `feature/US-<ID>-<short-description>` from `main`.
+5. Implement the task and its tests together. Run the checks that exist (section 2 lists real commands). Keep the real output.
+6. If a fact changed (version, path, command, task status), edit `project.toml` and run `make docs`. Never edit text between GENERATED markers.
+7. Ask the `reviewer` subagent (`.claude/agents/reviewer.md`) to review the diff. Fix every blocker and major finding.
+8. Open a pull request using the template. A human merges it; never merge your own PR.
+9. After merge, set the task `done = true` in `project.toml` in a small follow-up PR (the docs check requires the evidence files to exist).
+
+
+## 12. Tools (MCP servers) — only if connected
+`.mcp.json` declares `notion` and `github` servers. Check with `/mcp` that they are connected before using them. If they are not connected, say so; do not pretend you used them.
+- **Notion** is the sprint board. Read the card for the story. You may change only its Status and add a link to the PR. Do not create, delete or restructure pages or databases.
+- **GitHub** is for branches, pull requests and reading checks. Never use it to merge, to change repository settings or rulesets, or to touch repositories other than this one.
+- Notion and `project.toml` can disagree. For code, rules and versions `project.toml` and this file win. For who-does-what and card status, Notion wins. Report any disagreement to the human.

@@ -8,6 +8,8 @@
 **Objective:** A new contributor can clone this repo, bring up a pinned K3s cluster (1 server + 4 hospital agent nodes), build and run the FL client container on it, and every PR is gated by automated lint, test, image-build and security checks. No federated-learning logic yet.
 
 **Capacity:** 4 people x 10 h/week = 80 h per sprint (assumed, not confirmed); about 62 h planned.
+
+**SRS planned points:** 5 (US-03 = 3 + US-23 = 2, per SRS sections 2.4, 2.5 and 5.5). PB-26 and E1/E2 below are team additions beyond the SRS.
 <!-- END GENERATED:header -->
 
 ## In scope
@@ -15,8 +17,8 @@
 | ID | Item | Owner | Points |
 | --- | --- | --- | --- |
 | US-03 | Containerised FL client (PyTorch CPU) | Faisal Khalid | 3 |
-| US-23 | Reproducible environment manifests (exact pins, hashed lockfiles) | M. Hammad | 2 (proposed; SRS has no estimate) |
-| PB-26 | K3s dev-cluster bootstrap + manifests + dev guide (new item, not in SRS) | Faisal Khalid | 3 (proposed) |
+| US-23 | Reproducible environment manifests (exact pins, hashed lockfiles) | M. Hammad | 2 (SRS 2.4) |
+| PB-26 | K3s dev-cluster bootstrap + manifests + dev guide (new item, not in SRS) | Faisal Khalid | 3 (proposed, not in SRS) |
 | E1 | CI baseline + branch rules (pulled forward from US-24) | Wajeeh ur Rehman | enabler |
 | E2 | SMPC-library spike -> docs/adr/0003-smpc-library.md | Shah Wali | enabler, 1 day timebox |
 <!-- END GENERATED:scope -->
