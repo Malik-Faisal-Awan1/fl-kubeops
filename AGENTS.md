@@ -29,7 +29,7 @@ Current sprint: **Sprint 1 (Foundation)**, status **IN PROGRESS**.
 | Docs-sync workflow | present |
 | Cluster scripts | absent |
 | Kubernetes manifests | absent |
-| ADRs | absent |
+| ADRs | present |
 | Compatibility matrix | absent |
 | Dev setup guide | absent |
 
@@ -74,7 +74,8 @@ Each of `operator/`, `clients/`, `pipeline/` gets its **own** `pyproject.toml` a
 | Lint + format | `ruff==0.17.4` (exact pin). Do not install flake8 or black |
 | Tests | `pytest==9.2.0`, `pytest-cov==7.1.0` |
 | Dependency locking | `uv==0.13.7` with hashes (`uv pip compile --generate-hashes`), one lockfile per component |
-| SMPC requirement (SRS) | Shamir threshold secret sharing, t = 3 of n = 4; the aggregation server cannot recover any individual client update unless a threshold of shares is combined; assumes participants do not collude. Library undecided (ADR 0003) |
+| SMPC library | Flower SecAgg+ (flwr==1.43.0, Apache-2.0). Implements Bonawitz et al. (2017) threshold secure aggregation: server learns only the aggregate, never individual updates; tolerates 1-of-4 client dropout (threshold t = 3 of n = 4). Decided in ADR 0003. |
+| GenAI dataset | Chest x-ray images and tabular patient records sourced from Shaukat Khanum Memorial Cancer Research Centre. Data stays on the hospital node at all times (NFR-C01); no patient data enters git or any container image. |
 | Builds | local only. No image registry, no publishing, no GHCR |
 | Board | Notion (not GitHub Projects) |
 <!-- END GENERATED:decisions -->
@@ -145,7 +146,7 @@ Merged by PR with a non-author review · all CI checks green (including `docs-sy
 
 ## 9. Open items — do NOT assume an answer
 <!-- BEGIN GENERATED:open -->
-- SMPC library (ADR 0003 pending). It must support Shamir threshold sharing with t = 3 of n = 4.
+- SMPC library: ADR 0003 records the decision to use Flower SecAgg+ (flwr==1.43.0). It implements Bonawitz et al. (2017) threshold secure aggregation with dropout tolerance, satisfying the SRS requirement that the server cannot recover individual updates and that aggregation proceeds with ≥3 of 4 clients (NFR-R03).
 - Whether the repo owner may bypass branch rulesets (assume **no** until told).
 - VM operating system and access details (unknown). Do not write VM-specific commands.
 - SRS prose writes `FL Cluster` (with a space) and `FLClusters.fl.kubeops.io` in RG-01. Kubernetes resource names must be lowercase and contain no space. Our name stays `FLCluster` / `flclusters.fl.kubeops.io`. Do not copy the SRS spelling into code.
