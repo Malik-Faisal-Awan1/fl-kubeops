@@ -46,7 +46,7 @@ Nothing in this section is typed by hand: it is computed from the files in the r
 
 ## Pinned toolchain (decided)
 <!-- BEGIN GENERATED:toolchain -->
-Python 3.12 · K3s v1.36.6+k3s1 · k3d v5.9.0 · torch 2.15.0 (CPU) · kopf 1.45.2 · ruff 0.17.4 · pytest 9.2.0 · uv 0.13.7
+Python 3.12 · K3s v1.36.6+k3s1 · k3d v5.9.0 · torch 2.15.0 (CPU) · kopf 1.45.2 · ruff 0.17.4 · pytest 9.2.0 · uv 0.13.7 · flwr 1.43.0 (SecAgg+)
 <!-- END GENERATED:toolchain -->
 
 ## Commands that exist right now
