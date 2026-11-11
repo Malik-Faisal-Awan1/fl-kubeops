@@ -181,8 +181,14 @@ value = "`uv==0.13.7` with hashes (`uv pip compile --generate-hashes`), one lock
 short = "uv 0.13.7"
 pins = ["uv==0.13.7"]
 [[decision]]
-topic = "SMPC requirement (SRS)"
-value = "Shamir threshold secret sharing, t = 3 of n = 4; the aggregation server cannot recover any individual client update unless a threshold of shares is combined; assumes participants do not collude. Library undecided (ADR 0003)"
+topic = "SMPC library"
+value = "Flower SecAgg+ (flwr==1.43.0, Apache-2.0). Implements Bonawitz et al. (2017) threshold secure aggregation: server learns only the aggregate, never individual updates; tolerates 1-of-4 client dropout (threshold t = 3 of n = 4). Decided in ADR 0003."
+short = "flwr 1.43.0 (SecAgg+)"
+pins = ["flwr==1.43.0"]
+
+[[decision]]
+topic = "GenAI dataset"
+value = "Chest x-ray images and tabular patient records sourced from Shaukat Khanum Memorial Cancer Research Centre. Data stays on the hospital node at all times (NFR-C01); no patient data enters git or any container image."
 [[decision]]
 topic = "Builds"
 value = "local only. No image registry, no publishing, no GHCR"
@@ -235,7 +241,7 @@ role = "FL security"
 stories = "SMPC-library spike (ADR 0003)"
 
 [[open_item]]
-text = "SMPC library (ADR 0003 pending). It must support Shamir threshold sharing with t = 3 of n = 4."
+text = "SMPC library: ADR 0003 records the decision to use Flower SecAgg+ (flwr==1.43.0). It implements Bonawitz et al. (2017) threshold secure aggregation with dropout tolerance, satisfying the SRS requirement that the server cannot recover individual updates and that aggregation proceeds with ≥3 of 4 clients (NFR-R03)."
 [[open_item]]
 text = "Whether the repo owner may bypass branch rulesets (assume **no** until told)."
 [[open_item]]
