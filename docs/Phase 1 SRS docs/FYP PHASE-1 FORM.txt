@@ -1,0 +1,17 @@
+FORM LINK:
+https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fforms.cloud.microsoft%2Fr%2FMZ7d9K7yyb&data=05%7C02%7CL1F23BSCS0192%40ucp.edu.pk%7Cab0120a892564ab434eb08df4616a7c5%7C12b221b30464422389e5888835778b58%7C0%7C0%7C639306735318815907%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=GBf%2BG2ZX5orxiDHrslUzVAWIv7nfwgctAN90f5Lrsn8%3D&reserved=0
+
+1. F26CS023
+2. PRIVACY PRESERVING HEALTH CARE GEN-AI
+3. PROF. DR. SAIRA GILLANI
+4. Centralized training requires collecting sensitive datasets in one place(locally). Removing direct identifiers doesn't necessarily prevent re-identification. Encryption protects data in transit and at rest, but does not determine where training takes place
+5. FL-KubeOps is a infrastructure prototype that coordinates federated learning across four simulated hospital nodes on K3s while keeping raw data locally. It uses secure aggregation and tracked pipelines to evaluate a chest X-ray classifier, alongside a separate local generative chat interface.
+6. SOFTWARE DEVELOPMENT, AI
+7. FAISAL KHALID
+8. SYED SHAH WALI
+9. WAJEEH UR REHMAN
+10. MUHAMMAD HAMMAD
+11. Notion, GitHub, Docker, pytest, Ruff
+12. Python, K3s, Kubernetes, Kopf, FLCluster, PyTorch, EfficientNet-B0, Flower SecAgg+, FedAvg, gRPC, Kubeflow Pipelines, MLflow, TLS 1.3
+
+**SUBMIT**
